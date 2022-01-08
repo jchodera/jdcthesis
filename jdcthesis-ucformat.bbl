@@ -1,0 +1,1217 @@
+\begin{thebibliography}{100}
+
+\bibitem{allen:1991a}
+M.~P. Allen and D.~J. Tildesley.
+\newblock {\em Computer simulation of liquids}.
+\newblock Clarendon Press, Oxford, 1991.
+
+\bibitem{levy:2005a}
+Michael Andrec, Anthony~K. Felts, Emilio Gallicchio, and Ronald~M. Levy.
+\newblock Protein folding pathways from replica exchange simulations and a
+  kinetic network model.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 102:6801--6806, 2005.
+
+\bibitem{anfinsen:1973a}
+C.~B. Anfinsen.
+\newblock Principles that govern folding of protein chains.
+\newblock {\em Science}, 181(4096):223--230, 1973.
+
+\bibitem{ansari:1985a}
+Anjum Ansari, Joel Berendzen, Samuel~F. Bowne, Hans Frauenfelder, Icko E.~T.
+  Iben, Todd~B. Sauke, Erramilli Shyamsunder, and Robert~D. Young.
+\newblock Protein states and proteinquakes.
+\newblock {\em Proc. Nat. Acad. Sci. USA}, 82:5000--5004, 1985.
+
+\bibitem{apostolakis:1999a}
+Joannis Apostolakis, Philippe Ferrara, and Amadeo Caflisch.
+\newblock Calculation of conformational transitions and barriers in solvated
+  systems: Application to the alanine dipeptide in water.
+\newblock {\em J. Chem. Phys.}, 110(4):2099--2108, 1999.
+
+\bibitem{bahar:folding-design:1997}
+Ivet Bahar, Ali~Rana Atilgan, and Burak Erman.
+\newblock Direct evaluation of thermal fluctuations in proteins using a
+  single-parameter harmonic potential.
+\newblock {\em Fold. Des.}, 2:173--181, 1997.
+
+\bibitem{bai:1989a}
+Y.~S. Bai and M.~D. Fayer.
+\newblock Time scales and optical dephasing measurements: Investigation of
+  dynamics in complex systems.
+\newblock {\em Phys. Rev. B}, 39:11066--11084, 1989.
+
+\bibitem{ball:1998b}
+Keith~D. Ball and R.~Stephen Berry.
+\newblock Realistic master equation modeling of relaxation on complete
+  potential energy surfaces: Kinetic results.
+\newblock {\em J. Chem. Phys.}, 109(19):8557--8572, 1998.
+
+\bibitem{becker:1997a}
+Oren~M. Becker and Martin Karplus.
+\newblock The topology of multidimensional potential energy surfaces: {Theory}
+  and application to peptide structure and kinetics.
+\newblock {\em J. Chem. Phys.}, 106(4):1495--1517, 1997.
+
+\bibitem{berendsen:1984a}
+H.~J.~C. Berendsen, J.~P.~M. Postma, W.~F. van Gunsteren, A.~DiNola, and J.~R.
+  Haak.
+\newblock Molecular dynamics with coupling to an external bath.
+\newblock {\em J. Chem. Phys.}, 81(8):3684--3690, 1984.
+
+\bibitem{berezhkovskii:2005a}
+Alexander Berezhkovskii and Attila Szabo.
+\newblock One-dimensional reaction coordinates for diffusive activated rate
+  processes in many dimensions.
+\newblock {\em J. Chem. Phys.}, 122:014503, 2005.
+
+\bibitem{berg:1991a}
+Bernd~A. Berg and Thomas Neuhaus.
+\newblock Multicanonical algorithms for first order phase transitions.
+\newblock {\em Phys. Lett. B}, 267:249--253, 1991.
+
+\bibitem{berg:1992a}
+Bernd~A. Berg and Thomas Neuhaus.
+\newblock Multicanonical ensemble: A new approach to simulate first-order phase
+  transitions.
+\newblock {\em Phys. Rev. Lett.}, 68(1):9--12, 1992.
+
+\bibitem{bezanilla:physiol-rev:2000}
+Francisco Bezanilla.
+\newblock The voltage sensor in voltage-dependent ion channels.
+\newblock {\em Physiological Reviews}, 80(2):555--592, 2000.
+
+\bibitem{boehr:2006a}
+David~D. Boehr, Dan {McElheny}, H.~Jane Dyson, and Peter~E. Wright.
+\newblock The dynamic energy landscape of dihydrofolate reductase catalysis.
+\newblock {\em Science}, 313:1638--1642, 2006.
+
+\bibitem{bolhuis:2002a}
+P.~G. Bolhuis, D.~Chandler, C.~Dellago, and P.~L. Geissler.
+\newblock Transition path sampling: Throwing ropes over rough mountain passes,
+  in the dark.
+\newblock {\em Annu. Rev. Phys. Chem.}, 53:291--318, 2002.
+
+\bibitem{bolhuis:2000a}
+Peter~G. Bolhuis, Christoph Dellago, and David Chandler.
+\newblock Reaction coordinates of biomolecular isomerization.
+\newblock {\em Proc. Natl. Acad. Sci.}, 97(11):5877--5882, 2000.
+
+\bibitem{AMBER7}
+D.~A. Case, D.~A. Pearlman, J.~W. Caldwell, T.~E.~Cheatham III, J.~Wang, W.~S.
+  Ross, C.~L. Simmerling, T.~A. Darden, K.~M. Merz, R.~V. Stanton, A.~L. Cheng,
+  J.~J. Vincent, M.~Crowley, V.~Tsui, H.~Gohlke, R.~J. Radmer, Y.~Duan,
+  J.~Pitera, I.~Massova, G.~L. Seibel, U.~C. Singh, P.~K. Weiner, and P.~A.
+  Kollman.
+\newblock {AMBER7}, 2002.
+
+\bibitem{casella:statistical-inference}
+George Casella and Roger~L. Berger.
+\newblock {\em Statistical inference}.
+\newblock Duxbury Press, Belmont, CA, 1998.
+
+\bibitem{chandler:1978a}
+David Chandler.
+\newblock Statistical mechanics of isomerization dynamics in liquids and the
+  transition state approximation.
+\newblock {\em J. Chem. Phys.}, 68(6):2959--2970, 1978.
+
+\bibitem{changeux:2005a}
+{Jean-Pierre} Changeux and Stuart~J. Edelstein.
+\newblock Allosteric mechanisms of signal transduction.
+\newblock {\em Science}, 308:1424--1428, 2005.
+
+\bibitem{chekmarev:2004a}
+Dmitry~S. Chekmarev, Tateki Ishida, and Ronald~M. Levy.
+\newblock Long-time conformational transitions of alanine dipeptide in aqueous
+  solution: Continuous and discrete-state kinetic models.
+\newblock {\em J. Phys. Chem. B}, 108:19487--19495, 2004.
+
+\bibitem{chodera:jcp:2006}
+John~D. Chodera, Nina Singhal, Vijay~S. Pande, Ken~A. Dill, and William~C.
+  Swope.
+\newblock Automatic discovery of metastable states for the construction of
+  {Markov models} of macromolecular conformational dynamics.
+\newblock {\em Submitted to J. Chem. Phys.}, 2006.
+
+\bibitem{chodera:jpcb:2006}
+John~D. Chodera, William~C. Swope, Jed~W. Pitera, and Ken~A. Dill.
+\newblock Describing protein folding kinetics by molecular dynamics
+  simulations. 3. {Validation} of state space decomposition, with application
+  to terminally-blocked alanine in explicit solvent.
+\newblock {\em Submitted to J. Chem. Phys. B}, 2006.
+
+\bibitem{chodera:mms:2006}
+John~D. Chodera, William~C. Swope, Jed~W. Pitera, and Ken~A. Dill.
+\newblock Long-time protein folding dynamics from short-time molecular dynamics
+  simulations.
+\newblock {\em Multiscale Model. Simul.}, Special Issue on Biomolecular
+  Simulation, to appear, 2006.
+
+\bibitem{chodera:jctc:2006}
+John~D. Chodera, William~C. Swope, Jed~W. Pitera, Chaok Seok, and Ken~A. Dill.
+\newblock Use of the weighted histogram analysis method for the analysis of
+  simulated and parallel tempering simulations.
+\newblock {\em Submitted to J. Chem. Theor. Comput.}, 2006.
+
+\bibitem{church:2001a}
+Bruce~W. Church and David Shalloway.
+\newblock Top-down free-energy minimization on protein potential energy
+  landscapes.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 98(11):6098--6013, 2001.
+
+\bibitem{cochran:2001a}
+Andrea~G. Cochran, Nicholas~J. Skelton, and Melissa~A. Starovasnik.
+\newblock Tryptophan zippers: Stable, monomeric $\beta$-hairpins.
+\newblock {\em Proc. Natl. Acad. Sci.}, 98(10):5578--5583, 2001.
+
+\bibitem{cordero-morales:nsmb:2006:KcsA-voltage-gating}
+Julio~F. Cordero-Morales, Luis~G. Cuello, and Eduardo Perozo.
+\newblock Voltage-dependent gating at the {KcsA} selectivity filter.
+\newblock {\em Nat. Struct. Mol. Biol.}, 13(4):319--322, 2006.
+
+\bibitem{cordero-morales:nsmb:2006:gating-of-KcsA}
+Julio~F. Cordero-Morales, Luis~G. Cuello, Yanxiang Zhao, Vishwanath Jogini,
+  D.~Marien Cortes, {Beno\^{i}t} Roux, and Eduardo Perozo.
+\newblock Molecular determinants of gating at the potassium-channel selectivity
+  filter.
+\newblock {\em Nat. Struct. Mol. Biol.}, 13(4):311--318, 2006.
+
+\bibitem{cowan:statistical-data-analysis}
+Glen Cowan.
+\newblock {\em Statistical Data Analysis}.
+\newblock Oxford University Press, 1998.
+
+\bibitem{czerminski:1990a}
+Ryszard Czerminski and Ron Elber.
+\newblock Reaction path study of conformational transitions in flexible
+  systems: Application to peptides.
+\newblock {\em J. Chem. Phys.}, 92(9):5580--5601, 1990.
+
+\bibitem{dably-brown:curr-topics-med-chem:2006:Kv7-modulators}
+William Dably-Brown, Henrik~H. Hansen, Mads P.~G. Korsgaard, Naheed Mirza, and
+  {S\/{o}ren-P} Olesen.
+\newblock K$_v$7 channels: Function, pharmacology and channel modulators.
+\newblock {\em Curr. Topics Med. Chem.}, 6:999--1023, 2006.
+
+\bibitem{darden:1993a}
+T.~A. Darden, D.~M. York, and L.~G. Pedersen.
+\newblock {Particle mesh Ewald} -- an $n \cdot \log(n)$ method for {Ewald} sums
+  in large systems.
+\newblock {\em J. Chem. Phys.}, 98:10089--10092, 1993.
+
+\bibitem{degroot:2001a}
+Bert~L. de~Groot, Xavier Daura, Alan~E. Mark, and Helmut Grubm{\"{u}}ller.
+\newblock Essential dynamics of reversible peptide folding: Memory-free
+  conformational dynamics governed by internal hydrogen bonds.
+\newblock {\em J. Mol. Biol.}, 309:299--313, 2001.
+
+\bibitem{dellago:1998a}
+Christoph Dellago, Peter~G. Bolhuis, and David Chandler.
+\newblock Efficient transition path sampling: {Application} to the
+  {Lennard-Jones} cluster rearrangements.
+\newblock {\em J. Chem. Phys.}, 108(22):9236--9245, 1998.
+
+\bibitem{dellago:1998b}
+Christoph Dellago, Peter~G. Bolhuis, F\'{e}lix~S. Csajka, and David Chandler.
+\newblock Transition path sampling and the calculation of rate constants.
+\newblock {\em J. Chem. Phys.}, 108(5):1964, 1998.
+
+\bibitem{demo:neuron:1991}
+Susan~D. Demo and Gary Yellen.
+\newblock The inactivation gate of the \emph{{Shaker}} k$^+$ channel behaves
+  like an open-channel blocker.
+\newblock {\em Neuron}, 7:743--753, 1991.
+
+\bibitem{despa:2001a}
+Florin Despa and R.~Stephen Berry.
+\newblock Inter-basin dynamics on multidimensional potential surfaces. i.
+  escape rates on complex basin surfaces.
+\newblock {\em J. Chem. Phys.}, 115(18):8274--8278, 2001.
+
+\bibitem{despa:2003a}
+Florin Despa, Ariel {Fern\'{a}ndez}, and R.~Stephen Berry.
+\newblock Interbasin motion approach to dynamics of conformationally
+  constrained peptides.
+\newblock {\em J. Chem. Phys.}, 118(12):5673--5682, 2003.
+
+\bibitem{deuflhard:2000a}
+P.~Deuflhard, W.~Huisinga, A.~Fischer, and Ch. Sch{\"u}tte.
+\newblock Identification of almost invariant aggregates in reversible nearly
+  uncoupled {Markov} chains.
+\newblock {\em Linear Algebra Appl.}, 315(1-3):39--59, August 2000.
+
+\bibitem{schulten:structure:2006}
+Markus Dittrich and Klaus Schulten.
+\newblock {PcrA helicase}, a prototype {ATP}-driven molecular motor.
+\newblock {\em Structure}, 14:1345--1353, 2006.
+
+\bibitem{dobson:nature:2003:misfolding}
+Christopher~M. Dobson.
+\newblock Protein folding and misfolding.
+\newblock {\em Nature}, 426:884--890, 2003.
+
+\bibitem{du:1998a}
+Rose Du, Vijay~S. Pande, Alexander~Yu. Grosberg, Toyoichi Tanaka, and Eugene~S.
+  Shakhnovich.
+\newblock On the transition coordinate for protein folding.
+\newblock {\em J. Chem. Phys.}, 108(1):334--350, 1998.
+
+\bibitem{duan:2003a}
+Yong Duan, Chun Wu, Shibasish Chowdhury, Mathew~C. Lee, Guoming Xiong, Wei
+  Zhang, Rong Yang, Piotr Cieplak, Ray Luo, Taisung Lee, James Caldwell, Junmei
+  Wang, and Peter Kollman.
+\newblock A point-charge force field for molecular mechanics simulations of
+  proteins based on condensed-phase quantum mechanical calculations.
+\newblock {\em J. Comput. Chem.}, 24:1999--2012, 2003.
+
+\bibitem{dyson:nat-rev-mol-cell-biol:2005}
+H.~Jane Dyson and Peter~E. Wright.
+\newblock Intrinsically unstructured proteins and their functions.
+\newblock {\em Nat. Rev. Mol. Cell Biol.}, 6(3):197--208, 2005.
+
+\bibitem{e:2002a}
+Weinan E, Weiqing Ren, and Eric Vanden-Eijnden.
+\newblock String method for the study of rare events.
+\newblock {\em Phys. Rev. B}, 66:052301, 2002.
+
+\bibitem{eckert:nsmb:2005:prolyl-isomerization-molecular-timer}
+Barbara Eckert, Andreas Martin, Jochen Balback, and Franz~X. Schmid.
+\newblock Prolyl isomerization as a molecular timer in phage infection.
+\newblock {\em Nat. Struct. Mol. Biol.}, 12(7):619--623, 2005.
+
+\bibitem{efron:1979a}
+B.~Efron.
+\newblock Bootstrap methods: Another look at the jackknife.
+\newblock {\em Ann. Statist.}, 7(1):1--26, 1979.
+
+\bibitem{kern:science:2002}
+Elan~Zohar Eisenmesser, Daryl~A. Bosco, Mikael Akke, and Dorothee Kern.
+\newblock Enzyme dynamics during catalysis.
+\newblock {\em Science}, 295:1520--1523, 2002.
+
+\bibitem{elmer:2005b}
+Sidney~P. Elmer, Sanghyun Park, and Vijay~S. Pande.
+\newblock Foldamer dynamics expressed via {Markov} state models. {II}. {State}
+  space decomposition.
+\newblock {\em J. Chem. Phys.}, 123:114903, 2005.
+
+\bibitem{evans:2004a}
+David~A. Evans and David~J. Wales.
+\newblock Folding of the {GB1} hairpin peptide from discrete path sampling.
+\newblock {\em J. Chem. Phys.}, 112(2):1080, 2004.
+
+\bibitem{evertz:2003a}
+H.~G. Evertz.
+\newblock The loop algorithm.
+\newblock {\em Advances in Physics}, 52(1):1--66, 2003.
+
+\bibitem{faradjian:2004a}
+Aton~K. Faradjian and Ron Elber.
+\newblock Computing time scales from reaction coordinates by milestoning.
+\newblock {\em J. Chem. Phys.}, 120(23):10880--10889, 2004.
+
+\bibitem{yasar:2000a}
+{Fatih Ya\c{s}ar}, {Tarik \c{C}elik}, Bernd~A. Berg, and Hagai Meirovitch.
+\newblock Multicanonical procedure for continuum peptide models.
+\newblock {\em J. Comput. Chem.}, 21:1251--1261, 2000.
+
+\bibitem{ferrenberg:1995a}
+Alan~M. Ferrenberg, D.~P. Landau, and Robert~H. Swendsen.
+\newblock Statistical errors in histogram reweighting.
+\newblock {\em Phys. Rev. E}, 51(5):5092--5099, 1995.
+
+\bibitem{ferrenberg:1989a}
+Alan~M. Ferrenberg and Robert~H. Swendsen.
+\newblock Optimized {Monte Carlo} data analysis.
+\newblock {\em Phys. Rev. Lett.}, 63(12):1195--1198, 1989.
+
+\bibitem{ferrenberg:1988a}
+Alan~M. Ferrenberg and Robert~H. Swendsen.
+\newblock New {Monte Carlo} technique for studying phase transitions.
+\newblock {\em Phys. Rev. Lett.}, 61(23):2635--2638, 1998.
+
+\bibitem{fersht:2002a}
+Alan~R. Fersht.
+\newblock On the simulation of protein folding by short time scale molecular
+  dynamics and distributed computing.
+\newblock {\em Proc. Nat. Acad. Sci. USA}, 99:14122--14125, 2002.
+
+\bibitem{fischer-thesis}
+Alexander Fischer.
+\newblock {\em An Uncoupling-Coupling Method for Markov Chain Monte Carlo
+  Simulations with an Application to Biomolecules}.
+\newblock PhD thesis, Institute of Mathematics II, Free University Berlin,
+  2003.
+
+\bibitem{fischer:1998a}
+Alexander Fischer, Frank Cordes, and Christof Sch{\"u}tte.
+\newblock Hybrid {Monte Carlo} with adaptive temperature in mixed-canonical
+  ensemble: Efficient conformational analysis of {RNA}.
+\newblock {\em J. Comput. Chem.}, 1999:1689--1697, 1998.
+
+\bibitem{fitch:2003a}
+B.~G. Fitch, R.~S. Germain, M.~Mendell, J.~Pitera, M.~Pitman, A.~Rayshubskiy,
+  Y.~Sham, F.~Suits, W.~Swope, T.~J.~C. Ward, Y.~Zhestkov, and R.~Zhou.
+\newblock {Blue Matter}, an application framework for molecular simulation on
+  {Blue Gene}.
+\newblock {\em J. Parallel Distrib. Comput.}, 63:759--773, 2003.
+
+\bibitem{fixman:1974a}
+Marshall Fixman.
+\newblock Classical statistical mechanics of constraints: A theorem and
+  application to polymers.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 71(8):3050--3053, 1974.
+
+\bibitem{flyvbjerg:1989a}
+H.~Flyvbjerg and H.~G. Petersen.
+\newblock Error estimates on averages of correlated data.
+\newblock {\em J. Chem. Phys.}, 91(1):461--466, 1989.
+
+\bibitem{frauenfelder:pnas:2001}
+Hans Frauenfelder, Benjamin~H. {McMahon}, Robert~H. Austin, Kevin Chu, and
+  John~T. Groves.
+\newblock The role of structure, energy landscape, dynamics, and allostery in
+  the enzymatic function of myoglobin.
+\newblock {\em Proc. Nat. Acad. Sci. USA}, 98(5):2370--2374, 2001.
+
+\bibitem{galliat:2000a}
+T.~Galliat, W.~Huisinga, and P.~Deuflhard.
+\newblock Self-organizing maps combined with eigenmode analysis for automated
+  cluster identification.
+\newblock In {\em Proceeding of the ICSC Symposia on Neural Computation},
+  Berlin, Germany, May 2000.
+
+\bibitem{galliat-thesis}
+Tobias Galliat.
+\newblock {\em Adaptive Multilevel Cluster Analysis by Self-Organizing Box
+  Maps}.
+\newblock PhD thesis, FU Berlin, 2002.
+
+\bibitem{gallicchio:2005a}
+Emilio Gallicchio, Michael Andrec, Anthony~K. Felts, and Ronald~M. Levy.
+\newblock Temperature weighted histogram analysis method, replica exchange, and
+  transition paths.
+\newblock {\em J. Phys. Chem. B}, 109:6722--6731, 2005.
+
+\bibitem{gara:2005a}
+A.~Gara, M.~A. Blumrich, D.~Chen, G.~L.-T. Chiu, P.~Coteus, M.~E. Giampapa,
+  R.~A. Haring, P.~Heidelberger, D.~Hoenicke, G.~V. Kopcsay, T.~A. Liebsch,
+  M.~Ohmacht, B.~D. Steinmacher-Burow, T.~Takken, and P.~Vranas.
+\newblock Overview of the {Blue Gene/L} system architecture.
+\newblock {\em IBM J. Res. \& Dev.}, 49(2/3):195--212, 2005.
+
+\bibitem{garcia:2002a}
+Angel~E. {Garc\'{i}a} and Kevin~Y. Sanbonmatsu.
+\newblock $\alpha$-helical stabilization by side chain shielding of backbone
+  hydrogen bonds.
+\newblock {\em Proc. Nat. Acad. Sci. USA}, 99:2782--2787, 2002.
+
+\bibitem{geissler:jpcb:1999}
+Phillip~L. Geissler, Christoph Dellago, and David Chandler.
+\newblock Kinetic pathways of ion pair dissociation in water.
+\newblock {\em J. Phys. Chem. B}, 103:3706--3710, 1999.
+
+\bibitem{gelman:1992a}
+Andrew Gelman and Donald~B. Rubin.
+\newblock Inference from iterative simulation using multiple sequences.
+\newblock {\em Stat. Sci.}, 7(4):457--472, 1992.
+
+\bibitem{germain:2005a}
+Robert~S. Germain, Blake Fitch, Aleksandr Rayshubskiy, Maria Eleftheriou,
+  Michael~C. Pitman, Frank Suits, Mark Giampapa, and T.J.~Christopher Ward.
+\newblock {Blue Matter} on {Blue Gene/L}: Massively parallel computation for
+  biomolecular simulation.
+\newblock In {\em CODES+ISSS '05: Proceedings of the 3rd IEEE/ACM/IFIP
+  International Conference on Hardware/Software Codesign and System Synthesis},
+  pages 207--212, New York, NY, USA, 2005. ACM Press.
+
+\bibitem{grubmueller:1994a}
+Helmut {Grubm\"{u}ller} and Paul Tavan.
+\newblock Molecular dynamics of conformational substates for a simplfied
+  protein model.
+\newblock {\em J. Chem. Phys.}, 101(6):5047--5057, September 1994.
+
+\bibitem{gruebele:1998a}
+Martin Gruebele, Jobiah Sabelko, Richard Ballew, and John Ervin.
+\newblock Laser temperature jump induced protein refolding.
+\newblock {\em Acc. Chem. Res.}, 31:699--707, 1998.
+
+\bibitem{ha:pnas:1999}
+Taekjip Ha, Xiaowei Zhuang, Harold~D. Kim, Jeffrey~W. Orr, James~R. Williamson,
+  and Steven Chu.
+\newblock Ligand-induced conformational changes observed in single rna
+  molecules.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 96:9077--9082, 1999.
+
+\bibitem{hansmann:1997a}
+Ulrich H.~E. Hansmann.
+\newblock Parallel tempering algorithm for conformational studies of biological
+  molecules.
+\newblock {\em Chem. Phys. Lett.}, 281:140--150, 1997.
+
+\bibitem{hansmann:1993a}
+Ulrich H.~E. Hansmann and Yuko Okamoto.
+\newblock Prediction of peptide conformation by multicanonical algorithm: New
+  approach to the multiple-minima problem.
+\newblock {\em J. Comput. Chem.}, 14(11):1333--1338, 1993.
+
+\bibitem{hartmann:2004b}
+Carsten Hartmann and Christof {Sch\"{u}tte}.
+\newblock Free energy calculations in many dimensions.
+\newblock {\em Submitted for publication}, 2004.
+
+\bibitem{hartmann:2004a}
+Carsten Hartmann and Christof {Sch\"{u}tte}.
+\newblock A geometric approach to free energy calculations.
+\newblock {\em Submitted for publication}, 2004.
+
+\bibitem{hastie:2001a}
+Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
+\newblock {\em The Elements of Statistical Learning}.
+\newblock Springer, 2001.
+
+\bibitem{hirose:molcell:2006}
+Keiko Hirose, Erika Akimaru, Toshihiko Akiba, Sharyn~A. Endow, and Linda~A.
+  Amos.
+\newblock Large conformational changes in a kinesin motor catalyzed by
+  interaction with microtubules.
+\newblock {\em Mol. Cell}, 23:913--923, 2006.
+
+\bibitem{huisinga-thesis}
+Wilhelm Huisinga.
+\newblock {\em Metastability of Markov systems: A transfer operator based
+  approach in application to molecular dynamics}.
+\newblock PhD thesis, Free University of Berlin, Berlin, Germany, May 2001.
+
+\bibitem{huisinga:2005a}
+Wilhelm Huisinga and Bernd Schmidt.
+\newblock {\em Advances in Algorithms for Macromolecular Simulation}, chapter
+  Metastability and dominant eigenvalues of transfer operators.
+\newblock Lecture Notes in Computational Science and Engineering. Springer,
+  2005.
+
+\bibitem{hummer:2003a}
+Gerhard Hummer and Ioannis~G. Kevrekidis.
+\newblock Coarse molecular dynamics of a peptide fragment: Free energy,
+  kinetics, and long-time dynamics computations.
+\newblock {\em J. Chem. Phys.}, 118(23):10762--10773, June 2003.
+
+\bibitem{wand:chem-rev:2006}
+Tatyana~I. Igumenova, Kendra~King Frederick, and A.~Joshua Wand.
+\newblock Characterization of the fast dynamics of protein amino acid side
+  chains using {NMR} relaxation in solution.
+\newblock {\em Chem. Rev.}, 106:1672--1699, 2006.
+
+\bibitem{janke:2002a}
+Wolfhard Janke.
+\newblock Statistical analysis of simulations: {D}ata correlations and error
+  estimation.
+\newblock In J~Grotendorst, D~Marx, and A~Murmatsu, editors, {\em Quantum
+  Simulations of Complex Many-Body Systems: From Theory to Algorithms},
+  volume~10, pages 423--445. John von Neumann Institute for Computing, 2002.
+
+\bibitem{jardetzky:biochimica-et-biophysica-acta:1980}
+Oleg Jardetzky.
+\newblock On the nature of molecular conformations inferred from
+  high-resolution nmr.
+\newblock {\em Biochimica et Biophysica Acta}, 621:227--232, 1980.
+
+\bibitem{jaswal:jmb:2005:alpha-lytic}
+Sheila~S. Jaswal, Stephanie M.~E. Truhlar, Ken~A. Dill, and David~A. Agard.
+\newblock Comprehensive analysis of protein folding activation thermodynamics
+  reveals a universal behavior violated by kinetically stable proteases.
+\newblock {\em J. Mol. Biol.}, 347:355--366, 2005.
+
+\bibitem{jorgensen:1983a}
+W.~L. Jorgensen, J.~Chandrasekhar, J.~D. Madura, R.~W. Impey, and M.~L. Klein.
+\newblock Comparison of simple potential functions for simulating liquid water.
+\newblock {\em J. Chem. Phys.}, 79:926, 1983.
+
+\bibitem{kambara:jbc:2006}
+Taketoshi Kambara and Mitsuo Ikebe.
+\newblock A unique {ATP} hydrolysis mechanism of single-headed processive
+  myosin, {myosin IX}.
+\newblock {\em J. Biol. Chem.}, 281(8):4949--4957, 2006.
+
+\bibitem{karpen:1993a}
+Mary~E. Karpen, Douglas~J. Tobias, and Charles~L. {Brooks III}.
+\newblock Statistical clustering techniques for the analysis of long molecular
+  dynamics trajectories: Analysis of 2.2-ns trajectories of {YPGDV}.
+\newblock {\em Biochemistry}, 32:412--420, 1993.
+
+\bibitem{ke:nature:2004:ribozyme-catalysis-conformational-switch}
+Allong Ke, Kalhong Zhou, Fang Ding, Jamie H.~D. Cate, and Jennifer~A. Doudna.
+\newblock A conformational switch controls hepatitis delta virus ribozyme
+  catalysis.
+\newblock {\em Nature}, 429:201--205, 2004.
+
+\bibitem{khalil:2003a}
+M.~Khalil, N.~{Demird\"{o}ven}, and A.~Tokmakoff.
+\newblock Coherent {2D IR} spectroscopy: {Molecular} structure and dynamics in
+  solution.
+\newblock {\em J. Phys. Chem. A}, 107:5258--5279, 2003.
+
+\bibitem{AMBER-parm96}
+P.~A. Kollman, R.~Dixon, W.~Cornell, T.~Vox, C.~Chipot, and A.~Pohorille.
+\newblock The development/application of a 'minimalist' organic/biochemical
+  molecular mechanic force field using a combination of {\emph ab initio}
+  calculations and experimental data.
+\newblock In A.~Wilkinson, P.~Weiner, and W.~F. van Gunsteren, editors, {\em
+  Computer Simulation of Biomolecular Systems}, volume~3, pages 83--96.
+  Kluwer/Escom, 1997.
+
+\bibitem{kondrashov:biophysj:2006}
+Dmitry~A. Kondrashov, Qiang Cui, and George~N. {Phillips Jr.}
+\newblock Optimization and evaluation of a coarse-grained model of protein
+  motion using x-ray crystal data.
+\newblock {\em Biophys. J.}, 91:2760--2767, 2006.
+
+\bibitem{kriminski:2003a}
+S.~Kriminski, M.~Kazmierczak, and R.~E. Thorne.
+\newblock Heat transfer from protein crystals: Implications for flash-cooling
+  and {X-ray} beam heating.
+\newblock {\em Acta Cryst.}, D59:697--708, 2003.
+
+\bibitem{kube:2006a}
+Susanna Kube and Marcus Weber.
+\newblock Identification of metastabilities in monomolecular conformation
+  kinetics.
+\newblock {\em ZIB-Report}, 2006.
+
+\bibitem{kubelka:2004a}
+Jan Kubelka, James Hofrichter, and William~A. Eaton.
+\newblock The protein folding `speed limit'.
+\newblock {\em Curr. Opin. Struct. Biol.}, 14:76--88, 2004.
+
+\bibitem{kumar:1992a}
+Shankar Kumar, Djamal Bouzida, Robert~H. Swendsen, Peter~A. Kollman, and
+  John~M. Rosenberg.
+\newblock The weighted histogram analysis method for free-energy calculations
+  on biomolecules. {I}. {T}he method.
+\newblock {\em J. Comput. Chem.}, 13(8):1011--1021, 1992.
+
+\bibitem{kunz:1995a}
+Ralph~E. Kunz and R.~Stephen Berry.
+\newblock Statistical interpretation of topographies and dynamics of
+  multidimensional potentials.
+\newblock {\em J. Chem. Phys.}, 103(5):1904--1912, 1995.
+
+\bibitem{lednev:jacs:2001}
+Igor~K. Lednev, Anton~S. Karnoup, Mark~C. Sparrow, and Sanford~A. Asher.
+\newblock Transient {UV Raman} spectrocopy finds no crossing barrier between
+  the peptide $\alpha$-helix and fully random coil conformation.
+\newblock {\em J. Am. Chem. Soc.}, 123:2388--2392, 2001.
+
+\bibitem{lenz:2004a}
+Peter Lenz, Bojan Zagrovic, Jessica Shapiro, and Vijay~S. Pande.
+\newblock Folding probabilities: A novel approach to folding transitions and
+  the two-dimensional ising-model.
+\newblock {\em J. Chem. Phys.}, 120(14):6769--6778, April 2004.
+
+\bibitem{levitan:annu-rev-physiol:1994}
+Irwin~B. Levitan.
+\newblock Modulation of ion channels by protein phosphorylation and
+  dephosphorylation.
+\newblock {\em Annu. Rev. Physiol.}, 56:193--212, 1994.
+
+\bibitem{levy:2001a}
+Yaakov Levy, Joshua Jortner, and Oren~M. Becker.
+\newblock Dynamics of hierarchical folding on energy landscapes of
+  hexapeptides.
+\newblock {\em J. Chem. Phys.}, 115(22):10533--10547, 2001.
+
+\bibitem{levy:2002a}
+Yaakov Levy, Joshua Jortner, and R.~Stephen Berry.
+\newblock Eigenvalue spectrum of the master equation for hierarchical dynamics
+  of complex systems.
+\newblock {\em Phys. Chem. Chem. Phys.}, 4:5052--5058, 2002.
+
+\bibitem{lindorff-larsen:2005a}
+Kresten Lindorff-Larsen, Robert~B. Best, Mark~A. DePristo, Christopher~M.
+  Dobson, and Michele Vendruscolo.
+\newblock Simultaneous determination of protein structure and dynamics.
+\newblock {\em Nature}, 433:128--132, 2005.
+
+\bibitem{lockhart:science:1992}
+David~J. Lockhart and Peter~S. Kim.
+\newblock Internal {Stark} effect measurement of the electric field of the
+  amino terminus of an $\alpha$ helix.
+\newblock {\em Science}, 257:947--951, 1992.
+
+\bibitem{lockhart:science:1993}
+David~J. Lockhart and Peter~S. Kim.
+\newblock Electrostatic screening of charge and dipole interactions with the
+  helix backbone.
+\newblock {\em Science}, 260:198--202, 1993.
+
+\bibitem{lyubartsev:1992a}
+A.~P. Lyubartsev, A.~A. Martsinovski, S.~V. Shevkunov, and P.~N.
+  Vorontsov-Velyaminov.
+\newblock New approach to {Monte Carlo} calculation of the free energy: Method
+  of expanded ensembles.
+\newblock {\em J. Chem. Phys.}, 96:1776--1783, 1992.
+
+\bibitem{ma:2005a}
+Ao~Ma and Aaron~R. Dinner.
+\newblock Automatic method for identifying reaction coordinates in complex
+  systems.
+\newblock {\em J. Phys. Chem. B}, 109:6769--6779, 2005.
+
+\bibitem{gruebele:pnas:2005}
+Hairong Ma and Martin Gruebele.
+\newblock Kinetics are probe-dependent during downhill folding of an engineered
+  $\lambda_{6-85}$ protein.
+\newblock {\em Proc. Nat. Acad. Sci. USA}, 102:2283--2287, 2005.
+
+\bibitem{macqueen:1967}
+J.~{MacQueen}.
+\newblock Some methods for classification and analysis of multivariate
+  observations.
+\newblock In {\em Proceedings of the Fifth Berkeley Symposium on Mathematical
+  statistics and probability}, pages 281--297. University of California Press,
+  1967.
+
+\bibitem{maki:jbc:2006a}
+Nazli Maki, Karobi Moitra, Pratiti Ghosh, and Saibal Dey.
+\newblock Allosteric modulation bypasses the requirement for {ATP hydrolysis}
+  in regenerating low affinitiy transition state conformation of human
+  {P-glycoprotein}.
+\newblock {\em J. Biol. Chem.}, 281(16):10769--10777, 2006.
+
+\bibitem{mannuzzu:science:1996}
+Lidia~M. Mannuzzu, Mario~M. Moronne, and Ehud~Y. Isacoff.
+\newblock Direct physical measure of conformational rearrangement underlying
+  potassium channel gating.
+\newblock {\em Science}, 271(5246):213--216, 1996.
+
+\bibitem{marianayagam:2005a}
+Neelan~J. Marianayagam, Nicolas~L. Fawzi, and Teresa Head-Gordon.
+\newblock Protein folding by distributed computing and the denatured state
+  ensemble.
+\newblock {\em Proc. Natl. Acad. Sci.}, 102(46):16684--16689, 2005.
+
+\bibitem{marinari:1992a}
+E.~Marinari and G.~Parisi.
+\newblock Simulated tempering: a new {Monte Carlo} scheme.
+\newblock {\em Europhys. Lett.}, 19(6):451--458, 1992.
+
+\bibitem{meerbach:2004a}
+Eike Meerback, Christof {Sch\"{u}tte}, and Alexander Fischer.
+\newblock Eigenvalue bounds on restrictions of reversible nearly uncoupled
+  {Markov} chains.
+\newblock {\em Lin. Alg. Appl.}, 398:141--160, 2005.
+
+\bibitem{metropolis:1953a}
+N.~Metropolis, A.~W. Rosenbluth, M.~N. Rosenbluth, A.~H. Teller, and E.~Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em J. Chem. Phys.}, 21(6):1087--1092, 1953.
+
+\bibitem{mitsutake:2000a}
+Ayori Mitsutake and Yuko Okamoto.
+\newblock Replica-exchange simulated tempering method for simulations of
+  frustrated systems.
+\newblock {\em Chem. Phys. Lett.}, 332:131--138, 2000.
+
+\bibitem{mitsutake:2004a}
+Ayori Mitsutake and Yuko Okamoto.
+\newblock Replica-exchange extensions of simulated tempering method.
+\newblock {\em J. Chem. Phys.}, 121(6):2491--2504, 2004.
+
+\bibitem{mitsutake:2003a}
+Ayori Mitsutake, Yuji Sugita, and Yuko Okamoto.
+\newblock Replica-exchange multicanonical and multicanonical replica-exchange
+  monte carlo simulations of peptides. i. formulation and benchmark test.
+\newblock {\em J. Chem. Phys.}, 118(14):6664--6675, 2003.
+
+\bibitem{moroni:2004b}
+Daniele Moroni, Titus~S. van Erp, and Peter~G. Bolhuis.
+\newblock Investigating rare events by transition interface sampling.
+\newblock {\em Physica A}, 340:395--401, 2004.
+
+\bibitem{mortenson:2002a}
+Paul~N. Mortenson, David~A. Evans, and David~J. Wales.
+\newblock Energy landscapes of model polyalanines.
+\newblock {\em J. Chem. Phys.}, 117(3):1363--1376, 2002.
+
+\bibitem{mortenson:2001a}
+Paul~N. Mortenson and David~J. Wales.
+\newblock Energy landscapes, global optimization and dynamics of the
+  polyalanine {A}c(ala)$_8${NHMe}.
+\newblock {\em J. Chem. Phys.}, 114(14):6443--6454, 2001.
+
+\bibitem{munoz:1997a}
+Victor {Mu\~?{n}oz}, Peggy~A. Thompson, James Hofrichter, and William~A. Eaton.
+\newblock Folding dynamics and mechanism of $\beta$-hairpin formation.
+\newblock {\em Nature}, 390:196--199, 1997.
+
+\bibitem{mueller-krumbhaar:1973a}
+H.~{M\"{u}ller-Krumbhaar} and K.~Binder.
+\newblock Dynamic properties of the {Monte Carlo} method in statistical
+  mechanics.
+\newblock {\em J. Stat. Phys.}, 8(1):1--23, 1973.
+
+\bibitem{nakajima:1997a}
+Nobuyuki Nakajima, Haruki Nakamura, and Akinori Kidera.
+\newblock Multicanonical ensemble generated by molecular dynamics simulation
+  for enhanced conformational sampling of peptides.
+\newblock {\em J. Phys. Chem. B}, 101:817--824, 1997.
+
+\bibitem{newman:1999a}
+M.~E.~J. Newman and R.~G. Palmer.
+\newblock Error estimation in the histogram {Monte Carlo} method.
+\newblock {\em J. Stat. Phys.}, 97(5/6):1011--1026, 1999.
+
+\bibitem{nilges:protein-engineering:1988}
+Michael Nilges, Angela~M. Gronenborn, Axel~T. {Br\"{u}nger}, and G.~Marius
+  Clore.
+\newblock Determination of the three-dimenional structures of proteins by
+  simulated annealing with interproton distance restraints. application to
+  crambin, potato carboxypeptidase inhibitor and barley serine protease
+  inhibitor 2.
+\newblock {\em Protein Eng.}, 2(1):27--38, 1988.
+
+\bibitem{noe:jcp:2006}
+Frank {No\'e}, Illia Horenko, Christof {Sch\"{u}tte}, and Jeremy~C. Smith.
+\newblock Hierarchical analysis of conformational dynamics in biomolecules:
+  {Transition} networks of metastable states.
+\newblock {\em Submitted to J. Chem. Phys.}, 2006.
+
+\bibitem{noji:nature:1997}
+Hiroyuki Noji, Ryohel Yasuda, Masasuke Yoshida, and Kazuhiko {Kinosita Jr}.
+\newblock Direct observation of the rotation of f$_1$-{ATPase}.
+\newblock {\em Nature}, 386:299--302, 1997.
+
+\bibitem{ogle:science:2001}
+James~M. Ogle, Ditlev~E. Brodersen, William~M. {Clemons Jr.}, Michael~J. Tarry,
+  Andrew~P. Carter, and V.~Ramakrishnan.
+\newblock Recognition of cognate {transfer RNA} by the {30S ribosomal subunit}.
+\newblock {\em Science}, 292:897--902, 2001.
+
+\bibitem{okamoto:2004a}
+Yuko Okamoto.
+\newblock Generalized-ensemble algorithms: Enhanced sampling techniques for
+  monte carlo and molecular dynamics simulations.
+\newblock {\em J. Mol. Graph. Model.}, 22:425--439, 2004.
+
+\bibitem{oppenheim:1977a}
+Irwin Oppenheim, Kurt~E. Shuler, and George~H. Weiss, editors.
+\newblock {\em Stochastic processes in chemical physics: The master equation}.
+\newblock MIT Press, 1977.
+
+\bibitem{ozkan:2001a}
+S.~Banu Ozkan, Ivet Bahar, and Ken~A. Dill.
+\newblock Transition states and the meaning of $\phi$-values in protein folding
+  kinetics.
+\newblock {\em Nature Struct. Biol.}, 8(9):765--769, 2001.
+
+\bibitem{ozkan:2002a}
+S.~Banu Ozkan, Ken~A. Dill, and Ivet Bahar.
+\newblock Fast-folding protein kinetics, hidden intermediates, and the
+  sequential stabilization model.
+\newblock {\em Protein Science}, 11:1958--1970, 2002.
+
+\bibitem{paci:2003a}
+Emanuele Paci, Andrea Cavalli, Michele Vendruscolo, and Amedeo Caflisch.
+\newblock Analysis of the distributed computing approach applied to the folding
+  of a small $\beta$ peptide.
+\newblock {\em Proc. Natl. Acad. Sci. USA}, 100(14):8217--8222, 2003.
+
+\bibitem{pande:2002a}
+Vijay~S. Pande, Ian Baker, Jarrod Chapman, Sidney~P. Elmer, Siraj Khaliq,
+  Stefan~M. Larson, Young~Min Rhee, Michael~R. Shirts, Christopher~D. Snow,
+  Eric~J. Sorin, and Bojan Zagrovic.
+\newblock Atomistic protein folding simulations on the submillisecond time
+  scale using worldwide distributed computing.
+\newblock {\em Biopolymers}, 68:91--109, 2003.
+
+\bibitem{pande:2003a}
+Vijay~S. Pande, Ian Baker, Jarrod Chapman, Sidney~P. Elmer, Siraj Khaliq,
+  Stefan~M. Larson, Young~Min Rhee, Michael~R. Shirts, Christopher~D. Snow,
+  Eric~J. Sorin, and Bokan Zagrovic.
+\newblock Atomistic protein folding simulations on the submillisecond time
+  scale using worldwide distributed computing.
+\newblock {\em Biopolymers}, 68:91--109, 2003.
+
+\bibitem{park:2006a}
+Sanghyun Park and Vijay~S. Pande.
+\newblock Validation of {Markov} state models using {Shannon's} entropy.
+\newblock {\em J. Chem. Phys.}, 124:054118, 2006.
+
+\bibitem{perozo:nrmcb:2006:gating-mechanosensitive-channels}
+Eduardo Perozo.
+\newblock Gating prokaryotic mechanosensitive channels.
+\newblock {\em Nat. Rev. Mol. Cell Biol.}, 7:109--119, 2006.
+
+\bibitem{pitera:2006a}
+Jed~W. Pitera, Imran Haque, and William~C. Swope.
+\newblock Absence of reptation in the high-temperature folding of the trpzip2
+  $\beta$-hairpin peptide.
+\newblock {\em J. Chem. Phys.}, 124:141102, 2006.
+
+\bibitem{rhee:2005a}
+Young~Min Rhee and Vijay~S. Pande.
+\newblock One-dimensional reaction coordinate and the corresponding potential
+  of mean force from commitment probability distribution.
+\newblock {\em J. Phys. Chem. B}, 109:6780--6786, 2005.
+
+\bibitem{rhoades:2004a}
+Elizabeth Rhoades, Mati Cohen, Benjamin Schuler, and Gilad Haran.
+\newblock Two-state folding observed in individual protein molecules.
+\newblock {\em J. Am. Chem. Soc.}, 126:14686--14687, 2004.
+
+\bibitem{rieping:2005a}
+Wolfgang Rieping, Michael Habeck, and Michael Nilges.
+\newblock Inferential structure determination.
+\newblock {\em Science}, 309:303--306, 2005.
+
+\bibitem{roterman:1989a}
+I.~K. Roterman, M.~H. Lambert, K.~D. Gibson, and H.~A. Scheraga.
+\newblock A comparison of the {CHARMM}, {AMBER} and {ECEPP} potentials for
+  peptides. {II}. $\phi-\psi$ maps for {N}-acetyl alanine {N}'-methyl amide:
+  Comparisons, contrasts and simple experimental tests.
+\newblock {\em J. Biomol. Struct. Dyn.}, 78(3):421, 1989.
+
+\bibitem{SHAKE}
+J.~Ryckaert, G.~Ciccotti, and H.~J.~C. Berendsen.
+\newblock Numerical integration of the cartesian equations of motion of a
+  system with constraints: {M}olecular dynamics of $n$-alkanes.
+\newblock {\em J. Comput. Phys.}, 23(3):327--341, 1977.
+
+\bibitem{sanbonmatsu:biochimie:2006}
+K.~Y. Sanbonmatsu.
+\newblock Energy landcape of the ribosomal decoding center.
+\newblock {\em Biochimie}, 88:1053--1059, 2006.
+
+\bibitem{sanbonmatsu:2002a}
+K.~Y. Sanbonmatsu and A.~E. Garcia.
+\newblock Structure of met-enkephalin in explicit aqueous solution using
+  replica exchange molecular dynamics.
+\newblock {\em Proteins: Structure, Function, and Genetics}, 46:225--234, 2002.
+
+\bibitem{schultheis:2005a}
+Verena Schultheis, Thomas Hirschberger, Heiko Carstens, and Paul Tavan.
+\newblock Extracting markov models of peptide conformational dynamics from
+  simulation data.
+\newblock {\em J. Chem. Theor. Comput.}, 2005.
+
+\bibitem{schuette:1999a}
+Ch. {Sch\"{u}tte}, A.~Fischer, W.~Huisinga, and P.~Deuflhard.
+\newblock A direct approach to conformational dynamics based on {Hybrid Monte
+  Carlo}.
+\newblock {\em J, Comput. Phys.}, 151:146--168, 1999.
+
+\bibitem{schuette:2002b}
+Ch. Sch{\"u}tte and W.~Huisinga.
+\newblock Biomolecular conformations can be identified as metastable states of
+  molecular dynamics.
+\newblock In P.~G. Ciaret and J.-L. Lions, editors, {\em Handbook of Numerical
+  Analysis - special volume on computational chemistry}, volume~X. Elsevier,
+  2002.
+
+\bibitem{schuette-thesis}
+Christof {Sch\"{u}tte}.
+\newblock {\em Conformational dynamics: Modelling, theory, algorithm, and
+  application to biomolecules}.
+\newblock PhD thesis, Konrad Zuse Zentrum Berlin, Berlin, Germany, 1999.
+
+\bibitem{schuette:2002a}
+Christof Sch{\"{u}}tte and Wilhelm Huisinga.
+\newblock Biomolecular conformations can be identified as metastable sets of
+  molecular dynamics.
+\newblock In P.~G. Ciaret and J.-L. Lions, editors, {\em Handbook of Numerical
+  Analysis - special volume on computational chemistry}. Elsevier, in press.
+
+\bibitem{shalloway:1996a}
+David Shalloway.
+\newblock Macrostates of classical stochastic systems.
+\newblock {\em J. Chem. Phys.}, 105(22):9986--10007, 1996.
+
+\bibitem{shen:2003a}
+{Min-yi} Shen and Karl~F. Freed.
+\newblock Long time dynamics of met-enkephalin: Tests of mode-coupling theory
+  and implicit solvent models.
+\newblock {\em J. Chem. Phys.}, 118(11):5143--5156, 2003.
+
+\bibitem{pande:2000a}
+Michael Shirts and Vijay~S. Pande.
+\newblock Screen savers of the world unite!
+\newblock {\em Science}, 290(5498):1903--1904, December 2000.
+
+\bibitem{silverman-density-estimation}
+B.~W. Silverman.
+\newblock {\em Density Estimation for Statistics and Data Analysis}.
+\newblock Chapman and Hall, New York, NY, 1986.
+
+\bibitem{singhal:2006a}
+Nina Singhal, John~D. Chodera, Jed~W. Pitera, Vijay~S. Pande, Ken~A. Dill, and
+  William~C. Swope.
+\newblock An automatic state decomposition method for the construction of
+  discrete-state markov models of protein dynamics.
+\newblock {\em Manuscript in preparation.}, 2006.
+
+\bibitem{singhal:2005a}
+Nina Singhal and Vijay~S. Pande.
+\newblock Error analysis and efficient sampling in {Markovian} state models for
+  molecular dynamics.
+\newblock {\em J. Chem. Phys.}, 123:204909, 2005.
+
+\bibitem{singhal:2004a}
+Nina Singhal, Christopher~D. Snow, and Vijay~S. Pande.
+\newblock Using path sampling to build better markovian state models:
+  Predicting the folding rate and mechanism of a tryptophan zipper beta
+  hairpin.
+\newblock {\em J. Chem. Phys.}, 121(1):415--425, 2004.
+
+\bibitem{sorin:2005a}
+Eric~J. Sorin and Vijay~S. Pande.
+\newblock Empirical force-field assessment: The interplay between backbone
+  torsions and noncovalent term scaling.
+\newblock {\em J. Comput. Chem.}, 26:682--690, 2005.
+
+\bibitem{sorin:2005b}
+Eric~J. Sorin and Vijay~S. Pande.
+\newblock Exploring the helix-coil transition via all-atom equilibrium ensemble
+  simulations.
+\newblock {\em Biophys. J.}, 88:2472--2493, 2005.
+
+\bibitem{souaille:2001a}
+Marc Souialle and {Beno\^{i}t} Roux.
+\newblock Extension to the weighted histogram analysis method: combining
+  umbrella sampling with free energy calculations.
+\newblock {\em Comp. Phys. Commun.}, 135:40--57, 2001.
+
+\bibitem{spronk:j-biomol-nmr:2003}
+Chris A. E.~M. Spronk, Sander~B. Nabuurs, Alexandre M. J.~J. Bonvin, Elmar
+  Krieger, Geerten~W. Vuister, and Gert Vriend.
+\newblock The precision of {NMR} structure ensembles revisited.
+\newblock {\em J. Biomol. NMR}, 25:225--234, 2003.
+
+\bibitem{sriraman:2005a}
+Saravanapriyan Sriraman, Ioannis~G. Kevrekidis, and Gerhard Hummer.
+\newblock Coarse master equation from {Bayesian} analysis of replica molecular
+  dynamics simulations.
+\newblock {\em J. Phys. Chem. B}, 109:6479--6484, 2005.
+
+\bibitem{steinbach:biophys-j:2002}
+Peter~J. Steinbach, Roxana Ionescu, and C.~Robert Matthews.
+\newblock Analysis of kinetics using a hybrid
+  maximum-entropy-nonlinear-least-squares method: Application to protein
+  folding.
+\newblock {\em Biophys. J.}, 82:2244--2255, 2002.
+
+\bibitem{steipe:2002a}
+Boris Steipe.
+\newblock A revised proof of the metric properties of optimally superimposed
+  vector sets.
+\newblock {\em Acta Cryst.}, A58:506, 2002.
+
+\bibitem{stryer:biochemistry}
+Lubert Stryer.
+\newblock {\em Biochemistry}.
+\newblock W. H. Freeman, New York, 2002.
+
+\bibitem{sugita:1999a}
+Yugi Sugita and Yuko Okamoto.
+\newblock Replica-exchange molecular dynamics method for protein folding.
+\newblock {\em Chem. Phys. Lett.}, 314:141--151, 1999.
+
+\bibitem{sugita:2000b}
+Yuji Sugita and Yuko Okamoto.
+\newblock Replica-exchange multicanonical algorithm and multicanonical
+  replica-exchange method for simulating systems with rough energy landscape.
+\newblock {\em Chem. Phys. Lett.}, 2329:261--270, 2000.
+
+\bibitem{swope:1982a}
+William~C. Swope, Hans~C. Andersen, Peter~H. Berens, and Kent~R. Wilson.
+\newblock A computer simulation method for the calculation of equilibrium
+  constants for the formation of physical clusters of molecules: Application to
+  small water clusters.
+\newblock {\em J. Chem. Phys.}, 76(1):637--649, 1982.
+
+\bibitem{swope:2004a}
+William~C. Swope, Jed~W. Pitera, and Frank Suits.
+\newblock Describing protein folding kinetics by molecular dynamics
+  simulations: 1. {Theory}.
+\newblock {\em J. Phys. Chem. B}, 108:6571--6581, 2004.
+
+\bibitem{swope:2004b}
+William~C. Swope, Jed~W. Pitera, Frank Suits, Mike Pitman, Maria Eleftheriou,
+  Blake~G. Fitch, Robert~S. Germain, Aleksandr Rayshubski, T.~J.~C. Ward, Yuriy
+  Zhestkov, and Ruhong Zhou.
+\newblock Describing protein folding kinetics by molecular dynamics
+  simulations: 2. {Example} applications to alanine dipeptide and a
+  beta-hairpin peptide.
+\newblock {\em J. Phys. Chem. B}, 108:6582--6594, 2004.
+
+\bibitem{tang:1999a}
+Karen E.~S. Tang and Ken~A. Dill.
+\newblock How experiments see fluctuations of native proteins: Perspective from
+  an exact model.
+\newblock {\em Intl. J. Quantum Chem.}, 75:147--164, 1999.
+
+\bibitem{taylor-error-propagation}
+John~R. Taylor.
+\newblock {\em An Introduction to Error Analysis: The Study of Uncertainties in
+  Physical Measurements}, chapter 3.11, pages 73--79.
+\newblock University Science Books, 2nd ed. edition, 1996.
+
+\bibitem{theobald:2005a}
+Douglas~L. Theobald.
+\newblock Rapid calculation of {RMSD}s using a quaternion-based characteristic
+  polynomial.
+\newblock {\em Acta Cryst.}, A61:478--480, 2005.
+
+\bibitem{eaton:biochem:1997}
+Peggy~A. Thompson, William~A. Eaton, and James Hofrichter.
+\newblock Laser temperature jump study of the helix$\rightleftharpoons$coil
+  kinetics of an alanine peptide interpreted with a `kinetic zipper' model.
+\newblock {\em Biochem.}, 36:9200--9210, 1997.
+
+\bibitem{eaton:jpcb:2000}
+Peggy~A. Thompson, Victor {Mu\~{n}oz}, Gouri~S. Jas, Eric~R. Henry, William~A.
+  Eaton, and James Hofrichter.
+\newblock The helix-coil kinetics of a heteropeptide.
+\newblock {\em J. Phys. Chem. B}, 104:378--389, 2000.
+
+\bibitem{tominaga:jneurobiol:2004:thermosensation}
+Makoto Tominaga and Michael~J. Caterina.
+\newblock Thermosensation and pain.
+\newblock {\em J. Nerobiol.}, 61:3--12, 2004.
+
+\bibitem{truhlar:1996a}
+Donald~G. Truhlar, Bruce~C. Garrett, and Stephen~J. Klippenstein.
+\newblock Current status of transition-state theory.
+\newblock {\em J. Phys. Chem.}, 100:12771--12800, 1996.
+
+\bibitem{tsui:2000a}
+V.~Tsui and D.~A. Case.
+\newblock Molecular dynamics simulations of nucleic acids using a {generalized
+  Born} solvation model.
+\newblock {\em J. Am. Chem. Soc.}, 122:2489--2498, 2000.
+
+\bibitem{tuckerman:1992a}
+M.~Tuckerman, B.~J. Berne, and G.~J. Martyna.
+\newblock Reversible multiple time scale molecular dynamics.
+\newblock {\em J. Chem. Phys.}, 97(3):1990--2001, 1992.
+
+\bibitem{tuckerman:2001a}
+Mark~E. Tuckerman, Yi~Liu, Giovanni Ciccotti, and Glenn~J. Martyna.
+\newblock {Non-Hamiltonian} molecular dynamics: Generalizing {Hamiltonian}
+  phase space principles to {non-Hamiltonian} systems.
+\newblock {\em J. Chem. Phys.}, 115(4):1678--1702, 2001.
+
+\bibitem{ulitsky:1998a}
+Alex Ulitsky and David Shalloway.
+\newblock Variational calculation of macrostate transition rates.
+\newblock {\em J. Chem. Phys.}, 109(5):1670--1686, August 1998.
+
+\bibitem{ulitsky:1999a}
+Alex Ulitsky and David Shalloway.
+\newblock Erratum on ``variational calculation of macrostate transition
+  rates''.
+\newblock {\em J. Chem. Phys.}, 110(10):4975, March 1999.
+
+\bibitem{vandenhemel:jbc:2006}
+Debbie van~den Hemel, Ann {Brig\'{e}}, Savvas~N. Savvides, and Jozef~Van
+  Beeumen.
+\newblock Ligand-induced conformational changes in the capping subdomain of
+  bacterial old yellow enzyme homologue and conserved sequence fingerprints
+  provide new insights into substrate binding.
+\newblock {\em J. Biol. Chem.}, 281(38):28152--28161, 2006.
+
+\bibitem{vanerp:2003a}
+Titus~S. van Erp, Daniele Moroni, and Peter~G. Bolhuis.
+\newblock A novel path sampling method for the calculation of rate constants.
+\newblock {\em J. Chem. Phys.}, 118(17):7762--7774, 2003.
+
+\bibitem{vankampen}
+N.~G. van Kampen.
+\newblock {\em Stochastic processes in physics and chemistry}.
+\newblock Elsevier, second edition, 1997.
+
+\bibitem{voter:1985a}
+Arthur~F. Voter and Jimmie~D. Doll.
+\newblock Dynamical corrections to transition state theory for multistate
+  systems: Surface self-diffusion in the rare-event regime.
+\newblock {\em J. Chem. Phys.}, 82(1):80--92, 1985.
+
+\bibitem{wand:1997a}
+M.~P. Wand.
+\newblock Data-based choice of histogram bin width.
+\newblock {\em The American Statistician}, 51(1):59, 1997.
+
+\bibitem{AMBER-parm99}
+Junmei Wang, Piotr Cieplak, and Peter~A. Kollman.
+\newblock How well does a restrained electrostatic potential ({RESP}) model
+  perform in calculating conformational energies of organic and biological
+  molecules?
+\newblock {\em J. Comput. Chem.}, 21(12):1049--1074, 2000.
+
+\bibitem{weber-thesis:2006a}
+Marcus Weber.
+\newblock {\em Meshless methods in conformation dynamics}.
+\newblock PhD thesis, Free University of Berlin, 2006.
+
+\bibitem{weik:acta-cryst-d:2001}
+M.~Weik, G.~Kryger, A.~M.~M. Schreurs, B.~Bouma, I.~Silman, J.~L. Sussman,
+  P.~Gros, and J.~Kroon.
+\newblock Solvent behavior in flash-cooled protein crystals at cryogenic
+  temperatures.
+\newblock {\em Acta Cryst.}, D57:566--573, 2001.
+
+\bibitem{willard:1992a}
+Keith~E. Willard and Donald~P. Connelly.
+\newblock Nonparametric probability density estimation: Improvements to the
+  histogram for laboratory data.
+\newblock {\em Computers and Biomedical Research}, 25:17--28, 1992.
+
+\bibitem{williams:biochem:1996}
+Skip Williams, Timothy~P. Causgrove, Rudolf Gilmanshin, Karen~S. Fang,
+  Robert~H. Callender, William~H. Woodruff, and R.~Brian Dyer.
+\newblock Fast events in protein folding: Helix melting and formation in a
+  small peptide.
+\newblock {\em Biochem.}, 35:691--697, 1996.
+
+\bibitem{wulf:ncb:2005:phosphorylation-specific-prolyl-isomerization}
+Gerburg Wulf, Greg Finn, Futoshi Suizu, and Kun~Ping Lu.
+\newblock Phosphorylation-specific prolyl isomerization: is there an underlying
+  theme?
+\newblock {\em Nature Cell Biol.}, 7(5):435--441, 2005.
+
+\bibitem{yang:2004c}
+Wei~Yuan Yang and Martin Gruebele.
+\newblock Detection-dependent kinetics as a probe of folding landscape
+  microstrucure.
+\newblock {\em J. Am. Chem. Soc.}, 126:7758--7759, 2004.
+
+\bibitem{youngblood:jbc:2006a}
+Ben Youngblood and Norbert~O. Reich.
+\newblock Conformational transitions as determinants of specificity for the
+  {DNA} methyltransferase {EcoRI}.
+\newblock {\em J. Biol. Chem.}, 281(37):26821--26831, 2006.
+
+\bibitem{zagrovic:2002a}
+Bojan Zagrovic, Christopher~D. Snow, Michael~R. Shirts, and Vijay~S. Pande.
+\newblock Simulation of folding of a small alpha-helical protein in atomistic
+  detail using worldwide-distributed computing.
+\newblock {\em J. Mol. Biol.}, 323:927--937, 2002.
+
+\bibitem{duan:jpcb:2004}
+Wei Zhang, Hongxing Lei, Shibasish Chowdbury, and Yong Duan.
+\newblock Fs-21 peptides can form both single helix and helix-turn-helix.
+\newblock {\em J. Phys. Chem. B}, 108:7479--7489, 2004.
+
+\bibitem{zhuang:science:2002:structural-dynamics-ribozyme-function}
+Xiaowei Zhuang, Harold Kim, Miguel J.~B. Pereira, Hazen~P. Babcock, Nils~G.
+  Walter, and Steven Chu.
+\newblock Correlating structural dynamics and function in single ribozyme
+  molecules.
+\newblock {\em Science}, 296:1473--1476, 2002.
+
+\bibitem{zwanzig:1969a}
+Robert Zwanzig and Narinder~K. Ailawadi.
+\newblock Statistical error due to finite time averaging in computer
+  experiments.
+\newblock {\em Phys. Rev.}, 182(1):280--283, 1969.
+
+\end{thebibliography}

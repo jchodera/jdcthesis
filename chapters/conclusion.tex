@@ -1,0 +1,23 @@
+\chapter{Conclusion}
+\label{chapter:conclusion}
+
+In this dissertation, we have considered the problem of how the dynamics of biological macromolecules can be studied using discrete-state master equation or Markov models.
+The construction of these models requires two elements: a way of decomposing configuration space into states, and a method for computing transition rates or probabilities among these states.
+Chapter \ref{chapter:mastereqn-alanine-long-times} contained a proof of concept, demonstrating that a model constructed from short trajectories for a model system, terminally-blocked alanine peptide in explicit solvent, was capable of accurately describing the statistical dynamics over long times.
+In Chapter \ref{chapter:validation-of-master-equation}, we considered a number of tests to establish the timescale at which the stochastic model would be an appropriate description of dynamics, an important prerequisite for evaluating various state decompositions.
+Finally, Chapter \ref{chapter:automatic-state-decomposition} presented a first attempt at an \emph{automatic} algorithm for finding an optimal set of states given the number of states desired.
+These last two chapters describe the minimal essential ingredients for the construction of these models for problems of biological interest.
+
+There are obviously many remaining challenges before the use of these models becomes widespread, and before it is possible to tackle the most interesting questions in biology.
+Currently, the quantity of data needed to construct these models requires the resources of massive computing projects, such as Blue Gene or Folding@Home, though it is becoming apparent that equilibrium datasets from these projects are also insufficient to construct well-determined Markov models.
+Future work will concentrate on multistage sampling techniques.
+There, an initial set of simulations is used to construct a crude state space, from which sets of trajectories are initiated.
+By use of well-defined starting distributions that completely cover configuration space (\emph{e.g.}\ \cite{swope:2004a,weber-thesis:2006a,kube:2006a}), equilibrium transition probabilities can be reliably computed even if global equilibrium has never been achieved, as we saw in Chapter \ref{chapter:validation-of-master-equation}.
+Alternatively, automatic algorithms to construct Markov models may start a number of simulations from any known structural information (\emph{e.g.}\ crystal structures, NMR ensembles, or homology models) and iteratively construct and update the model, continually discovering new metastable states and reapportioning computational effort to always explore the most poorly characterized regions, perhaps using a method like the one described by Singhal \emph{et al.}\ \cite{singhal:2005a}.
+Transition path sampling \cite{dellago:1998b,bolhuis:2002a} could be employed to more efficiently compute transition rates or probabilities between states if at least one trajectory connecting the two has been found.
+
+Further progress in the efficient construction of these models from biomolecular simulation data will lend insight into the biophysical processes of protein folding and dynamics.
+More efficient algorithms will not only allow more complex problems to be addressed, but also will allow these models to be constructed with modest computer clusters instead of distributed computing projects.
+There may come a time when the majority of molecular simulations are performed to construct these models.
+After all, what good is a single trajectory when the entire statistical dynamics can be characterized instead?
+

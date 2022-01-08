@@ -1,0 +1,307 @@
+\section{Modeling the macromolecular system}
+
+Consider a biomacromolecule in a solvated environment under typical biological or experimental conditions.
+Our interest lies in the conformational dynamics of this macromolecule.
+We presume the system can be treated entirely within the realm of classical statistical mechanics for the following reasons:
+\begin{enumerate}
+  \item Because atomic nuclei are at least three orders of magnitude more massive than the electrons, the electronic degrees of freedom relax much more rapidly than the nuclei move, and can be considered as always occupying their ground state in the field of the nuclei.  
+  This is the celebrated Born-Oppenheimer approximation \cite{born:1927a}.
+  \item Quantized vibrations and zero-point energy effects are minimal due to the thermal kinetic energies under biological conditions\footnote{Comparison with experiment will occasionally still require correction terms to account for quantum effects that cannot be treated classicaly, such as quantized vibration effects, as in \cite{horn:jcp:2004}}.
+  \item In restricting our consideration to conformational dynamics and not chemical reactions, we require that chemical bonds are neither broken nor formed.
+  This ensures that we do not need to treat nuclear wavefunctions, as might be the case in enzyme-catalyzed hydrogen transfer reactions \cite{hammes-schiffer:acc-chem-res:2006}.
+\end{enumerate}
+The interatomic interactions can be completely described by some potential function $V(\q)$ that depends only on the Cartesian coordinates\footnote{We note that this exposition could be extended to allow the use of generalized coordinates and momenta, but this would necessitate the use of a Jacobian correction factor in the resulting phase space densities and partition functions.  Therefore, for simplicity, we leave this extension as an exercise to the reader, should it be necessary.} of the atomic nuclei $\q \in \Re^{3N}$.
+This potential is sometimes termed a \emph{forcefield} due to the fact that it is the field whose negative gradient yields the instantaneous interatomic forces: \index{forcefield} \label{notation:force} \index{force}
+\begin{eqnarray}
+\bfm{F}(\q) &=& - \grad_{\q} V(\q) \label{equation:force-definition}
+\end{eqnarray}
+The exact form of the potential is not of interest here, but there are several popular \emph{molecular mechanics forcefields} in common use today, such as AMBER \cite{AMBER-parm94,AMBER-parm96,AMBER-gaff,duan:2003a}, CHARMM \cite{mackerell:jpcb:1998}, and GROMOS \cite{oostenbrink:j-comput-chem:2004}. \index{forcefield!molecular mechanics}
+
+Although macromolecular crowding is known to have an effect on thermodynamics and conformational dynamics \cite{elcock:pnas:2003:crowding,chebotareva:biochem-moscow:2004:crowding,zhou:j-mol-recognit:2004:crowding,zhou:jbc:2004:crowding,volker:annu-rev-biophys-biomol-struct:2005,minton:j-cell-sci:2006}, and many macromolecules primarily exist in complexes or assemblies \cite{sali:nature:2003}, we restrict our consideration here to a single independent macromolecule\footnote{While the methods presented here may be extended to more complex systems of multiple interacting macromolecules and ligands, we restrict ourselves to consideration of a single macromolecule here, for simplicity.}. \index{crowding}
+This situation corresponds to a solution of macromolecules sufficiently dilute such that each can be considered as independent or noninteracting, which may be the case in some, but not all, experiments.
+Typically, the macromolecule is surrounded by a large amount of solvent (generally water) under near-atmospheric external pressures.
+In biological systems, as well as many experiments, the salt concentration ensures that some mobile counterions will surround the macromolecule\footnote{Standard practice in molecular simulations is to add only the minimal number of individual counterions to bring the system to net neutrality.  This practice may result in an atypical effective salt concentration that is not representative of either \emph{in vitro} or \emph{in vivo} conditions.  As an example, a recent simulation of the trpzip2 hairpin \cite{pitera:2006a} employed a cubic simulation box (48 \AA)$^3$ and a single chloride ion, for an effective salt concentration of 7--15 mM.  The corresponding experiments \cite{yang:2004a} employed a 50 mM potassium phosphate buffer.  A larger system, such as the 80-residue $\lambda_{6-85}$, might require an (88 \AA)$^3$ simulation box, where the addition of a single neutralizing chloride counterion would give an effective salt concentration of 1--2 mM, while experiments employing 50 mM phosphate buffer \cite{gruebele:pnas:2005} would require, on average, 21 pairs of counterions. In this system, addition or subtraction of a pair of neutralizing counterions only changes the effective salt concentration by 2 mM, so we might expect a broad distribution of counterion numbers if we examine comparable volumes in the experimental system.  It should be noted that even this large simulation volume gives an unphysically large protein concentration --- 15 mM for trpzip2 and 2 mM for $\lambda_{6-85}$, while the corresponding experiments employ concentrations of 1--5 $\mu$M \cite{yang:2003a} or 50--360 $\mu$M \cite{gruebele:pnas:2005}.}.
+Many macromolecules, especially nucleic acids, carry a net charge, so the nearby presence counterions is almost ensured so as to preserve net macroscopic neutrality.
+The environment in biological and experimental contexts is generally buffered to maintain near-constant pH, and the protonation states of titratable groups may change in response to conformational changes, ligand binding, or post-translational modifications, a switching behavior that is relevant to the biological function of several systems \cite{srivastava:2006a}.
+Additionally, the system might include the presence of small ligands or cosolvent molecules whose association with the macromolecule may have significant impact on its conformational dynamics.
+
+Here, we only consider Hamiltonian systems \emph{without} holonomic constraints.
+In molecular simulations, it is common practice to constrain bond lengths to hydrogen in the macromolecule \cite{SHAKE,RATTLE} or the water model \cite{jorgensen:1983a}.
+These fast vibrations otherwise constrain the longest timestep that can be used to achieve stable dynamics to approximately 1 fs at 300 K.
+Bond constraints introduce a coupling between the coordinates and momenta, resulting in non-Hamiltonian dynamics with correspondingly more complex statistical mechanical properties\footnote{In particular, the canonical partition function is no longer separable into a product of independent partition functions for coordinates and momenta.  There is also some disagreement about whether molecular dynamics and Metropolis Monte Carlo simulations conducted in Cartesian coordinates require expectations to be estimated by including a weighting term for each snapshot based on the metric tensor factor.  Simulation codes that conduct dynamics in torsion space, however, have employed such a correction for a number of years.  This term can be computed from the determinant of the metric tensor which can be computed by an expression originally derived by Fixman \cite{fixman:1974a} or from the constraint forces in constraint schemes based upon Lagrange multiplier methods \cite{tuckerman:1992a}.  This factor is universally ignored in standard simulation practice, though there is insufficient evidence to suggest whether this is, in fact, reasonable. An early study by Chandler and Berne  demonstrated a significant discrepancy between the uncorrected and Fixman-corrected potential of mean force of the torsion angle of $n$-butane in a simulation where bond lengths and angles were constrained by SHAKE \cite{chandler:jcp:1979}.} \cite{fixman:1974a,tuckerman:2001a,hartmann:2004b}.
+We will not consider constrained systems in the theoretical framework developed here\footnote{In subsequent sections, simulation data will be presented where these constraints were employed out of necessity due to the lack of adequate implementations of multiple timestep integrators in common molecular mechanics packages, as well as water models that have been parameterized for fully flexible use.  It is hoped this situation can be rectified in the near future.  If performance is a concern in unconstrained systems, multiple timestep integrators derived over a decade ago \cite{tuckerman:1992a} allow for unconstrained simulations to be run without incurring the large computational penalty otherwise encountered.}.
+
+We define the \emph{Hamiltonian} of the system $H(\z) = H(\q,\p) = T(\q) + V(\p)$ to denote the sum of the kinetic energy $T(\p) = \frac{1}{2} \p^\T \M^{-1} \p$, with $\M$ the diagonal mass matrix, and the potential energy $V(\q)$. \index{Hamiltonian} \label{notation:Hamiltonian}
+The value of the Hamiltonian at any phase space point $\z$ therefore gives the \emph{total energy} of the system, $E = T + V$. \index{total energy} \label{notation:total-energy}
+In the absence of any thermostat or energy exchange, the system evolves according \emph{Hamilton's equations of motion} which can be expressed succinctly in terms of the Hamiltonian as  \index{Hamilton's equations of motion}
+\begin{eqnarray}
+\dot{\q} &=& \grad_\p H(\q,\p) \nonumber \\
+\dot{\p} &=& - \grad_\q H(\q,\p)
+\end{eqnarray}
+where the dot denote differentiation with respect to time. 
+
+It can easily be seen that Hamilton's equations of motion reduce to an expression of Newton's Second Law:
+\begin{eqnarray}
+\dot{\q} &=& \grad_\p [T(\p) + V(\q)] = \M^{-1} \p \nonumber \\
+\dot{\p} &=& - \grad_\q [T(\p) + V(\q)] = - \grad_\q V(\q) = \bfm{F}(\q)
+\end{eqnarray}
+Because $\p = \M \bfm{v}$, where $\bfm{v}$ denotes the velocity, and $\dot{\p} = \M \dot{\bfm{v}} = \M \bfm{a}$, where $\bfm{a}$ denotes the acceleration, we recover the familiar equation $\bfm{F} = \M \bfm{a}$. \index{Hamilton's equations of motion} \index{Newton's Second Law}
+
+\section{Equilibrium statistical ensembles}
+\index{equilibrium statistical ensembles} \index{ensemble|see{equilibrium statistical ensembles}} \index{equilibrium thermodynamic ensembles|see{equilibrium statistical ensembles}}
+
+The equilibrium distribution of the macromolecule and its environment can be modeled by several statistical mechanical ensembles.
+We shall give an overview here.
+
+\subsection{Equivalence of ensembles}
+\label{section:equivalence-of-ensembles}
+\index{equilibrium statistical ensembles!equivalence}
+
+[General comments on the equivalence of all thermodynamic ensembles in the limit of large systems.]
+
+\subsection{Microcanonical (NVE)} 
+\label{section:nve}
+\index{equilibrium statistical ensembles!NVE} \index{NVE|see{equilibrium statistical ensembles}}
+
+In an isolated, confined system of constant volume that does not exchange energy with its environment, the total system energy $E$ will be constant.
+For sufficiently complex systems, the ergodic theorem will hold, and the macromolecule will be able to access all relevant regions of phase space \cite{kinchin:statmech:1949}.
+
+The equilibrium phase space distribution function is given by
+\begin{eqnarray}
+\rho(\z) &=& [\Omega(E)]^{-1} \, \delta(H(\z) - E) \nonumber \\
+\Omega(E) &\equiv& \int d\z \, \delta(H(\z) - E)
+\end{eqnarray}
+Here, $\Omega(E)$ denotes the \emph{total energy density of states}, which is a measure of the volume of phase space with total energy $E$, and $\delta(x)$ is the Dirac delta function. \index{density of states!energy density of states} \label{notation:total-energy-density-of-states}
+
+The temperature can be determined by
+\begin{eqnarray}
+\beta^{-1} &=& \left( \frac{\partial \Omega}{\partial E} \right) 
+\end{eqnarray}
+
+In principle, we should write $\Omega(E,V,N)$, as the density of states also depends on the system volume and number of particles, but we suppress these variables in general unless we consider their variation, as in the calculation of pressure:
+\begin{eqnarray}
+p &=& \beta \left( \frac{\partial \Omega}{\partial V} \right)
+\end{eqnarray}
+
+% JDC: Is this definition of the density of states kosher, as long as we use Cartesian coordinates?  Double-check with Kinchin.
+
+Because the Hamiltonian can be written $H(\q,\p) = T(\p) + V(\q)$, the total energy density of states can be written in terms of the product of individual kinetic and potential energy densities of states $\Omega_T(T)$ and $\Omega_V(V)$, respectively.
+Because $T(\p)$ has a simple functional form, we can further write
+\begin{eqnarray}
+\Omega_T(T) &=& \int d\p \, \delta( T(\p )- T ) \nonumber \\
+&=& \int d\p \, \delta(\frac{1}{2} \p^\T \M^{-1} \p - T) \nonumber \\
+&=& \left[ \prod_{n=1}^N (2 m_n)^{3/2} \right] \, \int d\x \, \delta(\x^T \x - T) \nonumber \\
+&=& \left[ \prod_{n=1}^N (2 m_n)^{3/2} \right] \, S_N(T)
+\end{eqnarray}
+where we have made use of the transformation of variables $\x = (2 \M)^{-1/2} \p$ to simplify the integral of the delta function of all of Cartesian momenta space to a surface integral over a hypersphere.
+Here, $m_n$ denotes the mass of particle $n$.
+$S_N(r)$ denotes the surface area of the $N$-sphere of radius $r$, and is given by
+\begin{eqnarray}
+S_N(r) &=& \frac{2 \pi^{N/2} r^{N-1}}{\Gamma(N/2)}
+\end{eqnarray}
+where $\Gamma(x)$ is the well-known Gamma function.  
+Note that the kinetic energy is always non-negative, \emph{i.e.} $T \ge 0$,
+Because the potential function $V(\q)$ is often much more complicated, we can generally only write
+\begin{eqnarray}
+\Omega_V(V) &=& \int d\q \, \delta( V(\q) - V )
+\end{eqnarray}
+The total energy density of states $\Omega(E)$ can therefore be computed from $\Omega_T(T)$ and $\Omega_V(V)$ by integrating over all combinations of $T$ and $V$ that yield $T + V = E$:
+\begin{eqnarray}
+\Omega(E) &=& \int_0^E dT \, \Omega_T(T) \, \Omega_V(E - T)
+\end{eqnarray}
+
+If the system size is large, and hence contains a large number of solvent molecules, it can be shown that the solvated macromolecule will experience a distribution of kinetic and potential energies and volumes consistent with the temperature and pressure desired.  % JDC: Cite proof of this -- often used as derivation of canonical ensemble.
+The effective temperature and pressure the macromolecule experiences will be a complicated function of the total system energy $E$ and volume $V$ cannot generally be easily determined \emph{a priori} and depends on the density of states of the system.
+If a big enough box can be afforded, it may be therefore appropriate to model the macromolecule in a solvated bath of constant volume and total system energy, both chosen to reproduce the desired average temperature and pressure by some equilibration process.
+
+%In principle, if the system is sufficiently large, the macromolecule will experience appropriate volume and energy fluctuations.
+% How big would this need to be?
+% In the limit of infinite number of particles, all ensembles are equivalent to this.
+% Subsystem will experience appropriate particle number fluctuations.
+% Proof of canonical ensemble distribution of subsystem?
+
+% JDC: How big does the system have to be for the subsystem to experience the appropriate thermal fluctuations?
+
+\subsection{Canonical (NVT)}
+\label{section:nvt}
+\index{equilibrium statistical ensembles!NVT} \index{NVT|see{equilibrium statistical ensembles}}
+  
+Because the systems typically treated in molecular mechanics simulations are finite in extent, the macromolecule may not experience a sufficiently large range of kinetic and potential energy distribution indicative of the canonical ensemble when the entire system is constrained to have constant total energy.
+For this reason, the NVT ensemble, where the distribution is given by
+\begin{eqnarray}
+\rho(\z) &=& [Z(E)]^{-1} \, e^{-\beta H(\bfm{\z})} \nonumber \\
+Z(\beta) &\equiv& \int d\z \, e^{-\beta H(\bfm{\z})}
+\end{eqnarray}
+where the inverse temperature $\beta = (\kB T)^{-1}$, where $T$ is the absolute temperature. \label{notation:canonical-partition-function}
+
+The result is a system in which the temperature is fixed to some value $T$.
+The temperature is defined through the expectation of the kinetic energy
+\begin{eqnarray}
+\frac{3}{2} N \beta^{-1} &=& \expect{ \frac{1}{2} \p^\T \bfm{M} \p }_\beta \label{equation:canonical-temperature}
+\end{eqnarray}
+
+Because the phase space weight, or \emph{Boltzmann factor}, $e^{-\beta H(\p,\q)}$ \index{Boltzmann factor} can be decomposed into a product of individual factors factors $e^{-\beta T(\p)}$ and $e^{-\beta V(\p)}$ (something that is not true of non-Hamiltonian systems that employ constraints), we can deco,pose partition function $Z(\beta)$ can be decomposed into a product of the kinetic and potential energy partition functions:
+\begin{eqnarray}
+Z(\beta) &=& \int d\z \, e^{-\beta H(\bfm{\z})} \nonumber \\
+&=& \int d\p \, d\q \, e^{-\beta (T(\bfm{\p}) + U(\bfm{\q}))} \nonumber \\
+&=& \left[ \int d\p \, e^{-\beta T(\bfm{\p})} \right] \, \left[ \int d\q \, e^{-\beta U(\bfm{\q}))} \right] \nonumber \\
+&=& P(\beta) \, Q(\beta)
+\end{eqnarray}
+where the kinetic partition function $P(\beta)$ is given by
+\begin{eqnarray}
+P(\beta) &\equiv& \int d\p \, e^{-\beta T(\bfm{\p})} \nonumber \\
+&=& \label{equation:kinetic-energy-partition-function}
+\end{eqnarray}
+and the potential partition function $Q(\beta)$ by
+\begin{eqnarray}
+Q(\beta) &\equiv& \int d\q \, e^{-\beta U(\bfm{\q})}
+\end{eqnarray}
+% JDC: Show analytical form of P(\beta), computed from Gaussian Integral.
+Both the kinetic and potential energies are therefore individually canonically distributed\footnote{Because of this decomposition, and because the form of the kinetic energy function $T(\p)$ is known, we can write the probability distribution of kinetic energies $p(T)$ in the canonical ensemble as
+\begin{eqnarray}
+%p(T) &=& [P(\beta)]^{-1} \, \int d\p \,  \exp[-\frac{1}{2} \p^\T \M^{-1} \p] \, \delta(T - \frac{1}{2} \p^\T \M^{-1} \p) \nonumber \\
+%&=& \frac{\left[ \prod_{n=1}^N m_{n}^{3/2} \right] \, \int d\p \,  \exp[-\frac{1}{2} \x^T \x] \, \delta(T - \frac{1}{2} \x^T \x)}{\left[ \prod_{n=1}^N m_{n}^{3/2} \right] \, \int d\p \,  \exp[-\frac{1}{2} \x^T \x]} \nonumber \\
+p(T ; \beta) &=& [P(\beta)]^{-1} \, \Omega_T(T) \, e^{-\beta T} \\
+&=& \frac{\left[ \prod_{n=1}^N (2 m_n)^{3/2} \right] \, S_N(T) \, e^{-\beta T}}{\left[ \prod_{n=1}^N (2 m_n)^{3/2} \right] \int_0^\infty dT\, S_N(T) \, e^{-\beta T}} \\
+&=& (2 \pi)^{-3 N /2} \, S_N(T) \, e^{-\beta T}
+\end{eqnarray}
+%%% fix here.
+
+Comparison of observed kinetic energy distributions with this distribution function provides a good way to validate thermostat implementations in molecular dynamics simulation codes.}.
+
+The volume, since it is fixed, should be chosen appropriately for the conditions of interest.
+Because the volume is fixed, the pressure fluctuations that result, especially if the system is small and the macromolecule experiences a large volume change as a result of some conformational change (such as folding), the pressure fluctuations that result may be artificially larger than the corresponding experimental system.
+
+In the limit of an infinitely large system, the NVT ensemble has identical distribution function to the NVE ensemble.
+
+\subsection{Isothermal-isobaric (NPT)}
+\index{equilibrium statistical ensembles!NPT} \index{NPT|see{equilibrium statistical ensembles}}
+
+In order
+
+In the limit of an infinitely large system, the NPT ensemble has identical distribution function to the NVE ensemble.
+
+\subsection{Semi-grand canonical ($\mu$VT, $\mu$PT)}
+\index{equilibrium statistical ensembles!$\mu$VT} \index{mVT@$\mu$VT|see{equilibrium statistical ensembles}}
+\index{equilibrium statistical ensembles!$\mu$PT} \index{mVT@$\mu$PT|see{equilibrium statistical ensembles}}
+
+\section{Evolution of phase space densities}
+
+Let $\z$ denote a point in the phase space of the system, consisting of Cartesian coordinates $\q$ and momenta $\p$. 
+A mechanical property or \emph{observable} $A$ will in general be a function of the phase space of the system, and will be denoted $A(\z)$.  
+The expectation of $A$ with respect to some probability distribution $\rho(\z)$ is simply
+\begin{eqnarray}
+\expect{A}_\rho &=& \int d\z \, \rho(\z) \, A(\z).
+\end{eqnarray}
+The evolution of an ensemble of systems or, equivalently, our state of uncertainty about the microscopic state of a system, can be described by writing the density as a function of time as well as space, $\rho(\z,t)$.  Given an initial distribution $\rho(\z,0)$ that has been allowed to evolve for some time $t$, the expectation is given by
+\begin{eqnarray}
+\expect{A(t)}_\rho &=& \int d\z \, \rho(\z,t) \, A(\z). \label{equation:schrodinger-picture}
+\end{eqnarray}
+Instead of expressing the time dependence in the density, we can move the time-dependence to the observable $A$ and write this expectation as a time-evolved observable $A(\z,t)$ integrated against the initial density $\rho(\z,0)$:
+\begin{eqnarray}
+\expect{A(t)}_\rho &=& \int d\z \, \rho(\z,0) \, A(\z, t). \label{equation:heisenberg-picture}
+\end{eqnarray}
+This is a similar story as in quantum mechanics: Eq. \ref{equation:schrodinger-picture} represents the Schr\"{o}dinger picture, where the distribution $\rho$ evolves \emph{forward} in time and is integrated against an observable that is time-independent, whereas Eq. \ref{equation:heisenberg-picture} corresponds to the Heisenberg picture, where the phase function $A$ evolves \emph{backward} in time and is integrated against the initial distribution.  
+For the purposes of this exposition, it is convenient to adopt the Heisenberg picture.
+
+We presume that evolution of the phase function $A$ is governed by the equation
+\begin{eqnarray}
+\frac{dA}{dt} &=& i \op{L} A \label{equation:liouville-equation}
+\end{eqnarray}
+where $i \op{L}$ is termed the \emph{Liouvillean}, and is the instantaneous generator of dynamics. \index{Liouvillean} \label{notation:liouvillean}
+$\op{L}$ has been defined this way so that we may also require it to be Hermitian, conferring upon it many of the same useful properties as familiar operators in quantum mechanics also enjoy.  
+The time evolution of a phase space density $\rho(\bfm{z},t)$ can be shown by the chain rule to be governed by
+\begin{eqnarray}
+\frac{d\rho}{dt} &=& \frac{\partial \rho}{\partial \z} \cdot \frac{\partial \z}{\partial t} \nonumber \\
+&=& \nabla \rho \cdot \dot \z \nonumber \\
+&=& \nabla \rho \cdot iL \z \nonumber \\
+&=& - i \op{L} \rho \label{equation:liouville-equation-density}
+\end{eqnarray}
+where $\nabla$ represents the gradient operator with respect to $\z$.  
+The first step is simple application of the chain rule, while the last step is due to integration by parts\footnote{To see how the last step proceeds, note that integration of $\nabla \rho_0(\z) \cdot \z$ by parts yields
+\begin{eqnarray}
+\int d\z \, \nabla \rho_0(\z) \cdot \z &=& [\rho_0(\z) \cdot \z]_S - \int d\z \, \rho_0(\z) \cdot 1
+\end{eqnarray}
+where the surface term $[\rho_0(\z) \cdot \z]_S$ is zero since we require $\rho_0(\z)$ to vanish at large $\z$ in order to be normalizable.  
+Evans and Morriss \cite{evans:statistical-mechanics-of-nonequilibrium-liquids} Section 3.3 contains an extended discussion on the relation of the Liouvillean acting on phase functions like $A$ to acting on distribution functions like $\rho$.}.  
+We require that the Liouvillean $i \op{L}$ preserves an equilibrium density $\rho_0(\z)$, such that $\partial \rho_0 / \partial t = 0$.
+
+With these requirements, the Liouvillean $iL$ can represent a variety of dynamical schemes, including field-free Newtonian (Hamiltonian) mechanics, as well as thermostated (e.g. Nos\'{e}-Hoover or Andersen) or barostated (e.g. Andersen piston) dynamics.  
+% JDC: Give examples of dynamical schemes.
+The equilibrium density $\rho_0(\z)$ can therefore be microcanonical, canonical, or even isothermal-isobaric. 
+Expectations over this equilibrium density are written
+\begin{eqnarray}
+\expect{A} &=& \int d\z \, \rho_0(\z) \, A(\z).
+\end{eqnarray}
+A \emph{scalar product} (or \emph{inner product}) can be defined with respect to the equilibrium density $\rho_0$ in the space of phase functions.  \index{scalar product} \index{inner product|see{scalar product}} \label{notation:inner-product}
+The inner product of two phase functions $A$ and $B^*$ is given by
+\begin{eqnarray}
+(A,B^*) &\equiv& \expect{A B^*} \nonumber \\
+&=& \int d\z \, \rho_0(\z) \, A(\z) \, B^*(\z)
+\end{eqnarray}
+where $^*$ denotes the complex conjugate.
+
+We will find occasion to use the Dirac bracket notation when convenient.  
+In this notation, the phase functions $A(\z)$ and $B(\z)$ are denoted by their corresponding \emph{kets} $\ket{A}$ and $\ket{B}$, with the corresponding \emph{bra} (e.g. $\bra{A}$) corresponding to complex conjugation and the scalar product denoted
+\begin{eqnarray}
+\braket{A}{B} &\equiv& \expect{A^* B} \nonumber \\
+&=& \int d\z \, \rho_0(\z) \, A(\z) \, B^*(\z).
+\end{eqnarray}
+\index{bra} \index{ket} \index{bra-ket notation}
+Note that $\braket{A}{B} = (A,B^*)$.
+
+With the time evolution of $A$ governed by Eq. \ref{equation:liouville-equation}, the explicit time dependence of $A$ in the Heisenberg picture can be written as
+\begin{eqnarray}
+A(\z,t) &=& e^{i \op{L} t} A(\z,0) \nonumber \\
+&=& \op{P}_t A(\z,0)
+\end{eqnarray}
+where the operator $\op{P}_t \equiv e^{i \op{L} t}$ is termed the \emph{propagator}, since it evolves\footnote{The sign difference between the time evolution operator for an observable (Eq. \ref{equation:liouville-equation-density}) and a density (Eq. \ref{equation:liouville-equation-density}) is sometimes a source of confusion.  One way to think of this is that, in order for the time-evolved phase function to give the proper expectation when integrated against the initial density, the value of the phase function must be evolved \emph{backward} in time at every point in phase space for the two pictures to coincide.} the phase function $A$ by time $t$.  \index{propagator} \label{notation:propagator}
+Since $L$ is Hermitian, the propagator $e^{iLt}$ is unitary, and time evolution corresponds to a rotation in the space in which the phase functions live.
+The exponential is simply a formal shorthand for the infinite power series expansion
+\begin{eqnarray}
+\op{P}_t \equiv e^{i \op{L} t} \equiv \sum_{n=0}^\infty \frac{(i \op{L} t)^n}{n!}.
+\end{eqnarray}
+
+\section{Dynamics in the canonical ensemble}
+
+For the majority of the remainder of this dissertation, we consider the canonical ensemble almost exclusively due to its widespread popularity in molecular simulations.
+Many of the results that follow can easily be adapted to other ensembles, but this may be nontrivial in some cases.
+
+Because the canonical ensemble is purely an equilibrium construct, there is no definitive specification of how equilibrium dynamics is to be modeled.
+A number of choices are possible, each with advantages (theoretical, computational, or conceptual) that make it difficult to decide which is most appropriate.
+Here, we enumerate a number of these models, all of which produce the canonical \emph{equilibrium} distribution (though perhaps in the limit of long sampling times), but treat the issue of dynamics in different manners.
+
+\subsection{Canonical average over constant-energy trajectories}
+
+In the simplest model of dynamics in the canonical ensemble, the system evolves according to Hamilton's equations of motion (that is, motion is purely Newtonian).
+Because the system is confined to a single energy shell $E$, we must therefore consider a canonical distribution of energy shells, weighting the dynamical trajectories from each energy shell appropriately:
+\begin{eqnarray}
+p(E) &=& [Z(\beta)]^{-1} \, \Omega(E) \, e^{-\beta E}
+\end{eqnarray}
+where $\Omega(E)$ is the total energy density of states defined above.
+
+\subsection{Stochastic thermostats}
+
+In this section, we briefly consider some of the more popular stochastic thermostats which have been employed.
+
+\subsubsection{Smoluchowski dynamics}
+
+\subsubsection{Langevin dynamics}
+
+\subsubsection{The Andersen thermostat}
+
+Andersen demonstrated that a canonical ensemble can be recovered by having molecules of the system undergo stochastic collisions with fictitious bath particles, where upon collision, the momenta of the atoms in the molecule undergoing collision would be reassigned from the Maxwell distribution \cite{andersen:1980a}.
+A constant collision rate $\nu$ per unit time can be employed, or collisions could occur at predetermined intervals.  % check latter part
+Alternatively, each atom may undergo collisions independently\footnote{It should be note that the Andersen thermostat with each atom independently undergoing collision only produces correct temperatures and distributions when no constraints are employed.  It has been observed anecdotally that, due to the removal of velocities in the direction of constraints, the kinetic energy distribution is disrupted.}, or even the entire system could undergo ``massive collision'' at random (or regular) intervals, though such massive collisions are obviously less suitable for modeling realistic kinetics.
+Andersen demonstrated that this procedure preserves the canonical distribution, as it consists of two components:
+
+\subsection{Deterministic thermostats}
+
+\subsubsection{The Berendsen weak-coupling algorithm}
+
+SImulations sometimes employ the Berendsen weak-coupling algorithm for thermal control \cite{berendsen:1984a}, in which a the \emph{instantaneous kinetic temperature}, $K(\z) \equiv \p^\T \M \p / 3 N \kB$, derived by analogy with Eq. \ref{equation:canonical-temperature} above, is restrained to fluctuate the desired temperature.
+However, it is well known that while this method may produce correct average temperatures computed by Eq. \ref{equation:canonical-temperature} above, the distribution of kinetic energies differs from that in the canonical ensemble, which leads to an incorrect phase space distribution\cite{morishita:2000a}.
+In very large solvated systems, however, the effect of the thermostat may be minimal, and a near-correct ensemble may be obtained.
+
+\subsubsection{The Nos\'e-Hoover thermostat}
+

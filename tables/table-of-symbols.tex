@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLE OF SYMBOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table*}[p]
+\caption{{\bf Notation.}}
+% :TODO: Change this to {lp{somewidth}}.
+\begin{tabular}{ll}
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERAL NOTATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{2}{l}{\bf General notation} \\
+$\expect{A}_\beta$ & configuration space average in the canonical ensemble at inverse temperature $\beta$ \\
+$\expect{A}$ & mathematical expectation, such as average over repeated realizations of an experiment \\
+$\timeavg{A}$ & time average over a trajectory \\
+$\estimator{A}$ & estimator of $\expect{A}$ \\
+$\delta^2 \estimator{A}$ & squared uncertainty in $\estimator{A}$ \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% VECTORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{2}{l}{\bf Vectors} \\
+$\bfm{q}$ & coordinates, $\bfm{q} \in \Re^{3N}$ \\
+$\bfm{p}$ & momenta, $\bfm{q} \in \Re^{3N}$ \\
+$\bfm{z}$ & phase space point $\bfm{z} = (\bfm{q}, \bfm{p})$, $\bfm{z} \in \Re^{6N}$ \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PARAMETERS AND VARIABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{2}{l}{\bf Parameters and variables} \\
+$U$ & potential energy \\
+$k_B$ & Boltzmann's constant \\
+$T$ & temperature \\
+$\beta$ & inverse temperature $1/(k_B T)$ \\
+$M$ & number of potential energy bins \\
+$U_m$ & potential energy at center of bin $m$ \\
+$\Delta U$ & width of potential energy bins \\
+$K$ & number of simulations or replicas \\
+$N_k$ & number of snapshots from simulation $k$ \\
+$\tau$ & integrated autocorrelation time \\
+$g$ & statistical inefficiency \\
+$w_k$ & weights for combining estimates from different simulations \\
+$f_k$ & dimensionless Helmholtz free energy of simulation $k$ \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FUNCTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{2}{l}{\bf Functions} \\
+$A({\bf q})$ & phase space observable (depends only on coordinates) \\
+$U({\bf q})$ & potential energy \\
+$\Omega(U)$ & density of states for potential energy \\
+$\psi_m(U)$ & indicator function for energy bin $m$ \\
+$P_m(\beta)$ & probability of energy bin $m$ at inv. temperature $\beta$ \\
+$Z(\beta)$ & canonical partition function at inv. temperature $\beta$ \\
+$p_m(\beta)$ & unnormalized probabilities for different energy levels at inverse temperature $\beta$ \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISCRETIZED FUNCTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{2}{l}{\bf Discretized functions} \\
+$H_{m,k}$ & number of snapshots from replica $k$ with potential energy falling in bin $m$ \\
+$\Omega_{m}^{(k)}$ & estimate of the density of states for energy bin $m$ from simulation or replica $k$ \\
+%\multicolumn{2}{l}{\bf Timeseries data} \\
+%${\bf q}_{kn}$ & coordinates of snapshot $n$ from simulation or replica $k$ \\
+%$U_{kn}$ & potential energy of snapshot $n$ from simulation or replica $k$ \\
+%$\beta_{kn}$ & inverse temperature of canonical ensemble from which snapshot $n$ and replica $k$ was generated \\
+%$\psi_{m,kn}$ & value of the indicator function for potential energy bin $m$ for snapshot $n$ of replica $k$ \\
+%$A_{kn}$ & value of the observable $A$ for snapshot $n$ of replica $k$ \\
+%$w_{kn}$ & weight of snapshot $n$ of replica $k$ at the temperature of interest \\
+%$B_{kn}$ & new observable defined as $w_{kn} A_{kn}$ \\
+\hline
+\end{tabular}
+\end{table*}

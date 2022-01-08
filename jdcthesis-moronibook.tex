@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% John D. Chodera thesis
+% using Daniele Moroni - PhD Thesis template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% Include preamble with all specifications
+\input{auxiliary/preamble}
+
+% Include definitions.
+\input{auxiliary/definitions.tex}
+
+\begin{document}
+
+% Include PDF figure of cover here.
+%\includepdf[offset=72 -30]{cover_front.pdf}
+
+% Inlcude copyright notice.
+\include{auxiliary/copyright}
+
+% Title page.
+\include{auxiliary/titlepage}
+
+% Front matter.
+\include{auxiliary/prepages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/introduction.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{The statistical mechanics of macromolecular dynamics}
+\label{chapter:statistical-mechanics}
+\input{chapters/statistical-mechanics.tex}
+
+%\input{chapters/derivation-of-master-equation.tex}
+\input{chapters/mastereqn-alanine-long-times.tex}
+\input{chapters/validation-of-master-equation.tex}
+\input{chapters/automatic-state-decomposition.tex}
+%\input{chapters/efficient-computation-of-transition-rates.tex}
+%\input{chapters/automatic-construction-of-master-equation.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/conclusion.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\input{chapters/wham.tex}
+%\input{chapters/statistical-uncertainty-primer.tex}
+
+% Back matter.
+\include{auxiliary/postpages}
+
+% Back cover.
+%\includepdf[offset=72 -30]{cover_back.pdf}
+
+\end{document}
+

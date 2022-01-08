@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS FILE CONTAINS DEFINITIONS AND COMMANDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Import useful packages.
+%\usepackage{times}
+%\usepackage{amsmath}                           	% for 'case'
+%\usepackage{amsthm}                           	% for theorems and proofs
+%\usepackage{mathrsfs}                          	% script math font
+%\usepackage{url}                               	% allow use of URLs
+%\usepackage{latexsym}                           % some math symbols, like \Box
+%\usepackage{pseudocode}                         % for pseudocode environment
+%\usepackage{subfigure}                           % allow use of subfigures
+
+%% figure path
+%\newif\ifpdf \ifx\pdfoutput\undefined
+%\pdffalse
+%\usepackage[dvips]{graphicx}
+%\DeclareGraphicsExtensions{.eps,.epsi}
+%\else
+%\pdfoutput=1
+%\pdfcompresslevel=9
+%\pdftrue
+%\usepackage[pdftex]{graphicx}
+%\DeclareGraphicsExtensions{.pdf}
+%\fi
+%\graphicspath{{figures/}}
+
+%% set up theorem block definitions
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}[theorem]{Corollary}
+%\renewcommand{\thepseudonum}{\roman{pseudonum}}
+
+%% quotations at beginning of chapters
+%\newcommand{\myquote}[3]{
+%\begin{flushright}
+%\begin{minipage}[t]{#1}
+%\itshape
+%#3 \\
+%\upshape
+%\end{minipage}
+%\\[-1mm]
+%#2
+%\end{flushright}
+%\vspace{5mm}
+%}
+
+
+% Define some useful commands we will use repeatedly.
+%\newcommand{\bfm}[1]{{\bf #1}}              % proper boldface for math environment
+\newcommand{\bfm}[1]{{\mbox{\boldmath{$#1$}}}}               % proper boldface for math environment
+%\newcommand{\bfm}[1]{{\boldsymbol{#1}}}               % proper boldface for math environment
+
+\newcommand{\op}[1]{\mathcal{#1}}
+%\newcommand{\vektor}[1]{{\bf #1}}
+%\renewcommand{\vec}[1]{\bfm{#1}} % italicized boldface
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\q}{\vec{q}} % coordinates
+\newcommand{\p}{\vec{p}} % momenta
+\newcommand{\z}{\vec{z}} % phase space point
+\newcommand{\x}{\vec{x}} % general vector x
+\newcommand{\M}{\bfm{M}} % diagonal mass matrix
+\newcommand{\grad}{\nabla}
+\newcommand{\timeavg}[1]{\overline{#1}}                    % time average over a trajectory
+\newcommand{\T}{\mathrm{T}}                                % T used in matrix transpose
+\newcommand{\tauarrow}{\stackrel{\tau}{\rightarrow}}       % the symbol tau over a right arrow
+\newcommand{\expect}[1]{\langle #1 \rangle}                % <.> for denoting expectations over realizations of an experiment or thermal averages
+\newcommand{\estimator}[1]{\hat{#1}}                       % estimator for some quantity from a finite dataset.
+\newcommand{\code}[1]{{\tt #1}}
+
+%\newcommand{\T}{\mathrm{T}}                                % T used in matrix transpose
+%\newcommand{\tauarrow}{\stackrel{\tau}{\rightarrow}}       % the symbol tau over a right arrow
+%\newcommand{\q}{\bfm{q}}
+%\newcommand{\p}{\bfm{p}}
+%\newcommand{\z}{\bfm{z}}
+%\newcommand{\expect}[1]{\langle #1 \rangle}                % <.> for denoting expectations over realizations of an experiment or thermal averages
+%\newcommand{\estimator}[1]{\hat{#1}}                       % estimator for some quantity from a finite dataset.
+%%\newcommand{\bfm}[1]{\mbox{\boldmath{$#1$}}}               % proper boldface for math environment
+%\newcommand{\bfm}[1]{{\bf #1}}
+\newcommand{\program}[1]{\textsc{\lowercase{#1}}}  % Formatting to be used for program or package names.  This uses tiny 
+
+
+\newcommand{\bra}[1]{\langle #1|}                          % Dirac bra <.|
+\newcommand{\ket}[1]{|#1\rangle}                           % Dirac ket |.>
+\newcommand{\braket}[2]{\langle #1|#2\rangle}              % Dirac bra-ket <.|.>
+
+\newcommand{\oparg}{\:\cdot\:}           % argument of an operator
+\newcommand{\set}[1]{\mathcal{S}_{#1}}           % argument of an operator
+

@@ -1,0 +1,188 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT CLASS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[draft,11pt]{ucthesis}
+%\documentclass[UC]{gcthesis}
+%\documentclass[GC,twoside]{jdcthesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOUBLE SPACING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
+%\dsp
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEFINITIONS OF SYMBOLS, FUNCTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{auxiliary/definitions.tex}
+
+% Define mychapter
+\newcommand{\mychapter}[1]{\chapter{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% We will be using PDF figures and generating PDF output.
+\pdfoutput=1
+\pdfcompresslevel=9
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf}
+
+%\usepackage{graphicx}                   % graphic extended
+\usepackage{cite}                       % to compress citations [1,2,3] -> [1-3], call it before babel 
+                                        % (useless with hyperref)
+
+%% Import useful packages.
+\usepackage{times}
+\usepackage{amsmath}                           	% for 'case'
+\usepackage{amsthm}                           	% for theorems and proofs
+\usepackage{mathrsfs}                          	% script math font
+\usepackage{url}                               	% allow use of URLs
+\usepackage{latexsym}                           % some math symbols, like \Box
+\usepackage{pseudocode}                         % for pseudocode environment
+\usepackage{subfigure}                           % allow use of subfigures
+\usepackage{latexsym}                           % some math symbols, like \Box
+\usepackage{multirow}
+\usepackage{rotating}
+
+%% figure path
+%\newif\ifpdf \ifx\pdfoutput\undefined
+%\pdffalse
+%\usepackage[dvips]{graphicx}
+%\DeclareGraphicsExtensions{.eps,.epsi}
+%\else
+%\pdfoutput=1
+%\pdfcompresslevel=9
+%\pdftrue
+%\usepackage[pdftex]{graphicx}
+%\DeclareGraphicsExtensions{.pdf}
+%\fi
+%\graphicspath{{figures/}}
+
+%% set up theorem block definitions
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{corollary}[theorem]{Corollary}
+%\renewcommand{\thepseudonum}{\roman{pseudonum}}
+
+%% quotations at beginning of chapters
+%\newcommand{\myquote}[3]{
+%\begin{flushright}
+%\begin{minipage}[t]{#1}
+%\itshape
+%#3 \\
+%\upshape
+%\end{minipage}
+%\\[-1mm]
+%#2
+%\end{flushright}
+%\vspace{5mm}
+%}
+% DOUBLE-SPACE
+% \baselinestretch{2.0}\large\normalsize
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DECLARATIONS FOR FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frontmatter}
+
+\title{Master equation models of macromolecular dynamics from atomistic simulation}
+\author{John D. Chodera}
+\degreeyear{2006}
+\degreesemester{Fall}
+\degree{Doctor of Philosophy}
+\chair{Professor Ken A. Dill}
+\othermembers{Professor Vijay S. Pande\\
+Professor Matthew P. Jacobson}
+\numberofmembers{3}
+%\prevdegrees{B.S. (California Institute of Technology) 1999}
+\field{Biophysics}
+\campus{San Francisco}
+
+\maketitle
+%\approvalpage
+\copyrightpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEDICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedication}
+\null\vfil
+{\large
+\begin{center}
+\input{auxiliary/dedication.tex}
+\end{center}}
+\vfil\null
+\end{dedication}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ACKNOWLEDGEMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgements}
+\input{auxiliary/acknowledgements.tex}
+\end{acknowledgements}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+\input{auxiliary/abstract.tex}
+\abstractsignature
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLES OF CONTENTS, LISTS OF FIGURES AND TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\listoffigures
+\listoftables
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLE OF SYMBOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{tables/table-of-symbols.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/introduction.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{The statistical mechanics of macromolecular dynamics}
+%\label{chapter:statistical-mechanics}
+%\input{chapters/statistical-mechanics.tex}
+
+%\input{chapters/derivation-of-master-equation.tex}
+\input{chapters/wham.tex}
+\input{chapters/mastereqn-alanine-long-times.tex}
+\input{chapters/validation-of-master-equation.tex}
+\input{chapters/automatic-state-decomposition.tex}
+%\input{chapters/efficient-computation-of-transition-rates.tex}
+%\input{chapters/automatic-construction-of-master-equation.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/conclusion.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+%\input{chapters/statistical-uncertainty-primer.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliography{jdcthesis}
+
+\end{document}
+

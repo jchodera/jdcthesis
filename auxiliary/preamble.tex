@@ -1,0 +1,243 @@
+
+%
+% All the settings, see NOTES file for further details
+%
+
+
+
+% packages
+
+%\documentclass[a4paper,twoside,10pt]{moroni} 
+\documentclass[letter,twoside,10pt]{moroni} 
+                                        % slightly modified book class, needs graphicx
+                                        % default is 10pt
+
+% We will be using PDF figures and generating PDF output.
+\pdfoutput=1
+\pdfcompresslevel=9
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf}
+
+%\usepackage{graphicx}                   % graphic extended
+\usepackage{cite}                       % to compress citations [1,2,3] -> [1-3], call it before babel 
+                                        % (useless with hyperref)
+\usepackage[french,spanish,italian,dutch,english]{babel}                
+                                        % all the languages I use (last is default)
+\usepackage{fancyhdr}                   % fancy header and footer, see later
+\usepackage{amsmath,amsfonts,amssymb}   % AMS extensions
+\usepackage[titles]{tocloft}            % to change the ToC entries, see later
+
+\usepackage[small,bf]{caption}          % nicer captions
+\usepackage{makeidx}                    % index
+
+\usepackage{floatflt}                   % floating figures/tables
+\usepackage{latexsym}                           % some math symbols, like \Box
+\usepackage{multirow}
+\usepackage{rotating}
+
+% Choose fonts.
+\usepackage{times} % JDC
+%\usepackage{bookman} % JDC
+
+% PDF-specific packages, namely:
+%
+% hyperref: makes hyperlinks. Call it as last package!
+% pdfpages: to insert pdf pages
+\ifx\pdfoutput\undefined                % if not compiling pdf
+\RequirePackage{hyperref}                % So hyperrefit does not complain for \url 
+\newcommand*{\includepdf}[2][]{}         % and for \includepdf
+\else                                   % If we're running pdftex make it nice
+  %\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
+  \RequirePackage[hyperindex,plainpages=false]{hyperref}
+                                          % NOTE: remove hyperlinks before sending to printing shop
+                                          % but keep them (in color or not?) for the digital version 
+  \def\pdfBorderAttrs{\Border [0 0 0] }  % No border around Links
+
+  \usepackage{pdfpages}                  % 
+\fi
+
+%\bibliographystyle{prsty}               % Phys. Rev. style (de gustibus)
+\bibliographystyle{jdc}               % JDC preferred style
+
+
+
+% fancy headings, not posh, very useful
+
+\pagestyle{fancy}                       % set fancy header and footer
+                                        
+\renewcommand{\chaptermark}[1]          % set chapter marker style
+  {\markboth{\sf\thechapter.\ #1}{}}    
+\renewcommand{\sectionmark}[1]          % set section marker style
+{\markright{\sf\thesection\ #1}}            
+
+\fancyhf{}                              % clear all header and footer fields 
+\fancyhead[LE]                          % Chapter on the left on even pages
+{{\bfseries\thepage$\quad$}\leftmark}   % page  chap#. chapter-name
+\fancyhead[RO]                          % Section on the right on odd pages
+{\rightmark{$\quad$\bfseries\thepage}}  % sec# section-name  page 
+
+\renewcommand{\headrulewidth}{0 pt}     % Width of head rule
+\renewcommand{\footrulewidth}{0 pt}     % Width of foot rule
+%\addtolength{\headheight}{1cm}          % Adjust header height
+
+\fancypagestyle{plain}{                 % redefine the plain style (for chapter startpage)
+  \fancyhf{}                              % clear all header and footer fields 
+  \fancyfoot[C]{\bfseries\thepage}        % except pagenumber bottom center
+  \renewcommand{\headrulewidth}{0 pt}     % no head rule
+  \renewcommand{\footrulewidth}{0 pt}     % no foot rule
+}
+
+\makeatletter                           % Clear style on last empty even pages
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+   \hbox{}
+   \thispagestyle{empty}                % Empty header styles
+   \newpage
+   \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\def\cleardoublepage{\clearpage}        % or uncomment this for no last empty even pages
+
+
+
+% tocloft package, change style of the table of contents
+
+\setlength{\cftbeforechapskip}{4.0ex}
+\setlength{\cftbeforesecskip}{0.5ex}
+\setlength{\cftbeforesubsecskip}{0.5ex}
+%\renewcommand{\cftchapfont}{\large\sffamily\bfseries}
+\renewcommand{\cftchapfont}{\sffamily\bfseries}
+\renewcommand{\cftsecfont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily}
+
+
+
+% the \chapter*
+% I automize the style of headers and addition to toc
+
+\newcommand{\mychapter}[1]{
+% \chapter*{#1\markboth{\sf #1}{}}
+ \chapter*{#1\markboth{\sf #1}{\sf #1}}
+ \addcontentsline{toc}{chapter}{#1}
+}
+
+
+
+% pedel format
+
+\paperheight=240mm    % define the paper size (proefschrift format)
+\paperwidth=170mm     
+
+\textheight=205mm     % vertical quantities
+\addtolength{\textheight}{-\headsep}
+\addtolength{\textheight}{-\headheight}
+\topmargin=0cm
+\voffset=15mm
+\addtolength{\voffset}{-1.0in}  % om de standaard 1 inch weg te halen
+
+\textwidth=130mm      % horizontal quantities
+\hoffset=-1in % om de standaard 1 inch weg te halen
+\oddsidemargin=22mm
+\evensidemargin=18mm
+\setlength{\headwidth}{\textwidth}
+
+\parskip=0mm          % just fine tuning
+\parindent=4mm        % (note: copyright.tex changes this)
+
+
+
+% Pictures: pdf/eps are automatically handled
+% here I just specify the path to all the figures
+
+\graphicspath{{/Users/jchodera/Documents/latex/doc/jdcthesis}{/Users/jchodera/Documents/latex/doc/jdcthesis/figures}{/Users/jchodera/Documents/latex/doc/jdcthesis/chapters/}{/Users/jchodera/Documents/latex/doc/jdcthesis/chapters/automatic-state-decomposition}{/Users/jchodera/Documents/latex/doc/jdcthesis/chapters/automatic-state-decomposition/figures}{/Users/jchodera/Documents/latex/doc/jdcthesis/figures/trpzip2}{/Users/jchodera/Documents/latex/doc/jdcthesis/figures/alanine-dipeptide}{/Users/jchodera/Documents/latex/doc/jdcthesis/figures/Fs-peptide}}
+
+
+
+% Useful macros
+
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\bfig}{\begin{figure}[h]}
+\newcommand{\efig}{\end{figure}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\ba}{\begin{align}}
+\newcommand{\ea}{\end{align}}
+\newcommand{\eref}[1]{(\ref{#1})}
+
+\newcommand{\NN}{\mathbb{N}}  % natural numbers
+\newcommand{\ZZ}{\mathbb{Z}}  % integers
+\newcommand{\QQ}{\mathbb{Q}}  % rationals
+\newcommand{\RR}{\mathbb{R}}  % reals
+\newcommand{\CC}{\mathbb{C}}  % complex
+\newcommand{\LA}{\langle}     % bra
+\newcommand{\RA}{\rangle}     % ket
+\newcommand{\kB}{k_B}         % Boltzmann constant
+
+
+
+% stuff for the appendices:
+% new command to create appendices as sections at the end of chapters
+% (never used though)
+
+\newcounter{secapp}[chapter]            % define new counter, reset on next chapter
+\newcommand{\sectionappendix}[1]        % the command definition
+{
+  \newpage                              % appendix starts on a new page
+  \renewcommand{\thesection}{\thechapter.\Alph{secapp}}
+                                        % the name of the appendix, e.g. 4.B
+  \stepcounter{secapp}                  % secapp++
+  \refstepcounter{section}              % section++, ref=section 
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1} 
+                                        % proper line in the ToC
+%  {\flushleft\Large\sffamily\bfseries\appendixname\ \thesection:\ #1\par}
+                                        % appearance of appendix title
+  {\flushleft\Large\sffamily\bfseries\thesection$\;\;$ #1\par}
+                                        % alternative appearance of appendix title
+  \sectionmark{#1}\vspace{\baselineskip}  % for the header
+  \renewcommand{\thesection}{\thechapter.\arabic{section}}
+                                        % restore settings for next chapter
+}
+
+
+
+% hyphenations (for english)
+% (does not seem to work though, treat each underfull case separately)
+
+\hyphenation{time-in-de-pen-dent}
+
+
+
+% list of symbols
+
+\def\addnotation #1#2#3{\parbox[t]{33mm}{$#1$}\parbox[t]{67mm}{#2}\hfill\mbox{#3}\\[0mm]}
+\def\addabbreviation #1#2#3{\parbox[t]{33mm}{#1}\parbox[t]{67mm}{#2}\hfill\mbox{#3}\\[0mm]}
+
+
+
+% quotations at beginning of chapters
+
+\newcommand{\myquote}[3]{
+\begin{flushright}
+\begin{minipage}[t]{#1}
+\itshape
+#3 \\
+\upshape
+\end{minipage}
+\\[-1mm]
+#2
+\end{flushright}
+\vspace{5mm}
+}
+
+
+
+% make index
+
+\makeindex

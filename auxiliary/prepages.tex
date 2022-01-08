@@ -1,0 +1,103 @@
+
+% change page numbering style 
+
+\pagenumbering{roman}\setcounter{page}{1}
+
+
+
+%%%% dedication %%%%
+
+\pagestyle{empty}
+
+\vspace*{4cm}
+\begin{flushright}
+\input{auxiliary/dedication.tex}
+\end{flushright}
+\newpage
+
+
+
+%%%% list of publications %%%%
+
+%\noindent Papers by the author related to this thesis:\\
+
+%\noindent Chapter~\ref{chap:chap1}
+%\par {\it A novel path sampling method for the calculation of rate constants} 
+%\par Titus S. van Erp, Daniele Moroni, and Peter G. Bolhuis 
+%\par J. Chem. Phys. {\bf 118}, 7762 (2003) 
+%\par {\it Investigating Rare Events by Transition Interface Sampling} 
+%\par Daniele Moroni, Titus S. van Erp, Peter G. Bolhuis 
+%\par Physica A {\bf 340}, 395 (2004)
+
+%\noindent Chapter~\ref{chap:chap2}
+%\par {\it The interplay between structure and size in a critical crystal nucleus}
+%\par Daniele Moroni, Pieter Rein ten Wolde, and Peter G. Bolhuis 
+%\par Phys. Rev. Lett. {\bf 94}, 235703 (2005) \\
+
+%\noindent Other papers by the author:\\
+
+%\noindent {\it Reorientation dynamics in thin glassy films}
+%\par Elio Cecchetto, Daniele Moroni, and Blandine Jerome 
+%\par J. Phys.: Condens. Matter {\bf 17}, 2825 (2005)
+
+%\noindent {\it Din\^{a}mica de un sistema n\~{a}o extensivo de rotores cl\'{a}ssicos anisotr\'{o}picos acoplados}
+%\par Ernesto P. Borges, Constantino Tsallis, Andrea Giansanti, Daniele Moroni 
+%\par in Tend\'{e}ncias da F\'{\i}sica Estat\'{\i}stica no Brasil, 
+%\par Editoria Livraria da F\'{\i}sica, S\~{a}o Paulo (2003) 
+
+
+\cleardoublepage
+\pagestyle{fancy}
+
+
+
+%%%% table of contents %%%%
+
+\tableofcontents
+\cleardoublepage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% list of symbols %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input auxiliary/symbols.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% abbreviations
+% NOTE: you could also put a pageref 
+
+%\vspace{1cm}
+\noindent{\Large\sf\textbf{Abbreviations}}\\[2mm]
+%
+\addabbreviation{WHAM}{weighted histogram analysis method}{}
+\addabbreviation{PMF}{potential of mean force}{}
+
+\cleardoublepage
+
+
+
+% if we don't start on an odd page, I have to invert the 
+% parity-dependent properties 
+
+\ifodd\value{page}
+\typeout{Mainmatter starts on odd page. Fine.}
+\else
+\typeout{Mainmatter starts on even page. Invert odd/even}
+% headers
+\fancyhf{}                              % clear all header and footer fields 
+\fancyhead[LO]                          % Chapter on the left on odd pages
+{{\bfseries\thepage$\quad$}\leftmark}   % page  chap#. chapter-name
+\fancyhead[RE]                          % Section on the right on even pages
+{\rightmark{$\quad$\bfseries\thepage}}  % sec# section-name  page 
+% margins
+\evensidemargin=22mm
+\oddsidemargin=18mm
+\fi
+
+% restore page numbering style 
+
+\pagenumbering{arabic} \setcounter{page}{1}
+

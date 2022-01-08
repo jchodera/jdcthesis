@@ -1,0 +1,135 @@
+\chapter{Introduction}
+%\mychapter{Introduction}
+\label{chapter:introduction}
+
+\section*{Perspective}
+
+%\subsection*{Conformational dynamics in biology}
+
+%Biological macromolecules are inherently dynamic molecular machines.
+Conformational dynamics plays an integral role in the function of biological macromolecules.
+Proteins, after translation by the ribosome, rapidly fold to well-defined native topologies that bring disparate chemical moieties together into a particular geometry, conferring the ability to perform chemical catalysis \cite{stryer:biochemistry}.
+Errant misfolding can lead to aggregation and the formation of amyloid plaques, a phenomenon associated with diseases such as Alzheimer's, Parkinson's, and Creutzfeldt-Jacob (``Mad Cow'') Diseases \cite{dobson:nature:2003:misfolding}.
+Once folded, excursions to partially unfolded states can expose proteins to proteolysis; to avoid this, some organisms appear to have evolved secreted proteases that are kinetically stable to maintain competitive advantage in harsh extracellular environments \cite{jaswal:jmb:2005:alpha-lytic}.
+Conformational changes of folded proteins can be critical for protein \cite{hirose:molcell:2006} or substrate binding \cite{vandenhemel:jbc:2006} and catalytic function \cite{kern:science:2002,youngblood:jbc:2006a,boehr:2006a}.
+Together with order-disorder transitions \cite{dyson:nat-rev-mol-cell-biol:2005}, ordered sequences of conformational changes are integral to the transformation of chemical energy into mechanical work by motor proteins \cite{kambara:jbc:2006,schulten:structure:2006} or the reverse by ATP synthases \cite{noji:nature:1997}.
+Binding or post-translational modification events far from the active site can modulate the activity of proteins through allosteric effects, which involve poorly understood structural or dynamical changes transmitted through largely unknown mechanical or electrostatic pathways \cite{frauenfelder:pnas:2001,changeux:2005a,maki:jbc:2006a}.
+Slow prolyl \emph{cis-trans} isomerization dynamics can be used as a molecular timer \cite{eckert:nsmb:2005:prolyl-isomerization-molecular-timer}, which can be modulated by phosphorylation events for signaling purposes \cite{wulf:ncb:2005:phosphorylation-specific-prolyl-isomerization}.
+Ion channel gating, an inherently stochastic kinetic process involving conformational switching between multiple conductance states \cite{mannuzzu:science:1996,cordero-morales:nsmb:2006:gating-of-KcsA}, can be modulated by transmembrane voltage \cite{bezanilla:physiol-rev:2000,cordero-morales:nsmb:2006:KcsA-voltage-gating}, ligand binding at allosteric sites \cite{dably-brown:curr-topics-med-chem:2006:Kv7-modulators}, temperature \cite{tominaga:jneurobiol:2004:thermosensation}, mechanical pressure \cite{perozo:nrmcb:2006:gating-mechanosensitive-channels}, and phosphorylation \cite{levitan:annu-rev-physiol:1994}, and undergo time-dependent inactivation \cite{demo:neuron:1991}.
+The conformational plasticity of RNA no doubt contributes to its many characterized biological roles in information transmission \cite{ogle:science:2001,sanbonmatsu:biochimie:2006}, binding \cite{ha:pnas:1999}, and catalysis \cite{zhuang:science:2002:structural-dynamics-ribozyme-function,ke:nature:2004:ribozyme-catalysis-conformational-switch}.
+In each of these cases, conformational dynamics plays an integral role in macromolecular folding, assembly, function, and regulation, and a detailed description of this dynamical behavior is likely critical to achieving an understanding of the corresponding biological phenomena.
+
+Structural biology has proven to be a valuable tool for the study of these machines.
+Structural studies, especially X-ray crystallography and nuclear magnetic resonance (NMR) spectroscopy, allow the determination of experimentally-derived structural models which can aid the formulation of hypotheses about function, mechanism, and disease.
+However, these methods have generally been limited to producing \emph{static} pictures of macromolecules.
+While attempts have been made to relate crystallographic Debye-Waller factors (``B-factors'') to biologically relevant conformational fluctuations \cite{bahar:folding-design:1997,kondrashov:biophysj:2006}, this interpretation is complicated by the fact that the majority of these crystals are cryogenically cooled before the collection of scattering data to temperatures well below the glass transition temperature \cite{weik:acta-cryst-d:2001} over times sufficiently long to allow for significant structural rearrangement \cite{kriminski:2003a}.
+Additionally, the presence of crystallographic and non-crystallographic neighbors, salts, and cosolvents, and binding partners in a crystal lattice suggests the relevance of information on dynamics or heterogeneity obtained from these data should be treated as suspect unless proven otherwise by extensive comparison with experimental data under more biological conditions.
+In principle, NMR provides information on both conformational heterogeneity and dynamics in solution, but the difficulty of interpreting this data, coupled with the small number of experimental observations per residue, has made extraction of anything but average structures (a surprisingly robust problem \cite{tang:1999a}) difficult, though work continues on improving this situation \cite{rieping:2005a,lindorff-larsen:2005a}.
+Standard NMR refinement protocols \cite{nilges:protein-engineering:1988} produce ensembles of structures, but the resulting ensemble may not represent conformational heterogeneity; in fact, assumptions that the data comes from a single conformation ensure this cannot be the case.
+As a result, the ensemble is composed of \emph{virtual} structures that may not exist in solution with high probability \cite{jardetzky:biochimica-et-biophysica-acta:1980}.
+These structures simply represent minima of the target function, a sum of a least-squares error function with experiment and a molecular mechanics forcefield.
+Additionally, the conformational diversity observed in these ensembles cannot easily be determined to be due to conformational averaging in solution or a lack of sufficient experimental restraints, but is usually an underestimate of the true diversity that is possible for an ensemble that satisfies the NMR restraints on average \cite{spronk:j-biomol-nmr:2003}.
+Despite these problems, these methods have provided structural models which have been tremendously useful for the generation of models and experimentally testable hypotheses, rapidly accelerating our ability to understand biological function and mechanism.
+
+In order to more directly probe conformational heterogeneity and dynamics, a number of other biophysical techniques have been developed.
+Certain NMR experiments can provide information on picosecond and nanosecond timescales \cite{wand:chem-rev:2006}, but the amount of information that can be extracted and its interpretation has proven even more difficult that the extraction of information about conformational heterogeneity.
+F\"{o}rster resonance energy transfer (FRET), in which two fluorescent probe molecules with overlapping emission and absorbance spectra are covalently attached to different groups of the molecule, allows for determination of the interprobe distance from the observed fluorescence emission.
+Other spectroscopic assays that do not require covalent modification, such as UV circular dichroism (CD), Fourier transform infrared spectroscopy (FTIR), and tryptophan fluorescence, also provide sensitive probes of different aspects of molecular structure and environment, though the interpretation of these spectra is often difficult and the information that can be extracted limited.
+Recent advances, such as two-dimensional infrared spectroscopy (2DIR) \cite{khalil:2003a} can provide more information at the expense of sacrificed time resolution, allowing some individual chemical moieties to be resolved.
+
+These spectroscopic probes can be employed to study either equilibrium thermodynamics over a range of conditions (such as temperature or denaturant concentration) or kinetics, in which relaxation from nonequilibrium initial conditions or equilibrium fluctuations are observed.
+In \emph{ensemble} experiments, in which a solution of many macromolecules is monitored at equilibrium or after a rapid perturbation (such as rapid heating of the solvent with a short laser pulse \cite{gruebele:1998a}), high time resolution is possible because signal is collected from many molecules.
+However, due to the presence of large numbers of molecules, these experiments can only provide information about the average spectroscopic signal over the ensemble --- information on heterogeneity within the ensemble is lost.
+As a result, much effort has recently been focused on the development of \emph{single molecule} experiments, which can provide information about the heterogeneity of both equilibrium distributions and individual microscopic trajectories.
+To obtain equilibrium distributions, it is sufficient to work with solutions that are sufficiently dilute such that it is unlikely that more than one molecule is in the region under spectroscopic surveillance at any one time.
+To observe dynamic trajectories, however, these molecules must be prevented from diffusing away from the observation area.
+This is typically done through the use of covalently attached or noncovalently-bound molecular linkers tethered to the glass slide, or by encapsulation in immobilized vesicles \cite{rhoades:2004a}.
+However, to gather sufficient numbers of photons to give a reasonable signal-to-noise ratio, time resolution must be sacrificed, leading to experimental time resolution of milliseconds for single-molecule experiments, rather than the nanosecond resolution achievable by ensemble experiments.
+
+Because of these limitations, there is still an unmet desire to observe the dynamics of individual molecules with high time resolution and in atomic detail.
+Clearly, further advances in engineering and ongoing development of new methods will continue to push the boundaries of what is experimentally observable.
+However, fundamental limitations, such as the tradeoff between time resolution and information about heterogeneity in ensemble and single-molecule experiments above, and the ability to observe only spectroscopically active changes mean there is only so much information that can be expected from experimental methods.
+
+Additionally, there appears to be a lack of consensus regarding the fundamental physical nature of the experimental observations and how to interpret them, or even how to summarize them in terms of sufficient statistics.
+The temporal signal from ensemble kinetics experiments, for example, has been variously fit to exponentials \cite{eaton:jpcb:2000}, sums of exponentials \cite{eaton:biochem:1997,munoz:1997a,steinbach:biophys-j:2002,yang:2004c}, and so-called \emph{stretched exponentials} \cite{gruebele:pnas:2005}.
+The presence of a \emph{burst phase} means that there is immediate and unexplained loss of spectroscopic signal in the \emph{dead time} of the experiment, immediately after the perturbation (e.g. stopped flow mixing or laser temperature-jump \cite{gruebele:1998a}).
+A statistical mechanical framework which would permit explanation of all of these observed phenomena and at least provide a physical functional form of the resulting observations, and ideally a connection with the actual microscopic dynamics, would be beneficial.
+
+With the advent of the modern microcomputer, a new kind of experiment became possible, in which the detailed atomic motions of the macromolecule and its environment were simulated given a suitable model for the interatomic forces.
+These molecular dynamics simulations promised the ability to model molecular processes in atomic detail and high time resolution, providing the microscopic detail missing from single-molecule or ensemble experiments mentioned above.
+However, gathering insight into biological processes from these trajectories faces several challenges.
+On contemporary workstations, molecular dynamics simulations with explicit representations of the solvent environment can reach simulation times generally limited to tens of nanoseconds --- far shorter than even the fastest characterized folding protein times of microseconds. 
+While current-generation supercomputers, with several moths of massively parallel computation, can reach timescales of up to 10 $\mu$s for small proteins \cite{germain:2005a}, a \emph{single} long trajectory in which only one event of interest occurs (e.g. a protein folding event) does not give much information about an inherently stochastic and heterogeneous process.
+By contrast, distributed computing projects \cite{pande:2000a,pande:2002a} offer the ability to produce many thousands of short trajectories, but there exists the danger that the mechanism by which the event of interest occurs (e.g. protein folding) may be biased, in that the mechanism at short times may differ from the mechanism at long times, where the bulk of events might occur \cite{fersht:2002a,marianayagam:2005a}.
+
+The forcefields commonly employed in molecular dynamics simulations are also known to be vast simplifications of the actual physical interactions, neglecting some contributions, such as polarizability, completely.
+Comparison with experiment to assess the severity of these omissions, however, is frustrated by the fact that ensemble experiments provide information about averages over many macromolecules while simulations typically consider only single molecules. % Redundant?
+On the other hand, comparison with single molecule experiments is difficult due to the low time resolution of the experimental data and the difficulty of generating sufficiently long simulation trajectories.
+
+As a result, the accuracy with which current-generation forcefields can model biomolecular kinetic processes is still largely unknown.
+What is needed is some way to bridge the \emph{timescale gap} between short atomistic simulations of single molecules and long experimental observations of ensembles of molecules.
+Ideally, this could be done through the construction of a statistical model that contains information about the heterogeneity by which the dynamical processes of interest may occur.
+This model would have to be constructed from relatively short simulations of single molecules, and yet describe the stochastic dynamics of either a single molecule or a (noninteracting) ensemble of molecules over much longer times.
+
+%\subsection*{Conformational dynamics and metastable states}
+
+% JDC: Restrict citations here to work that came before I started on this thesis?
+
+Fortunately, there is good evidence that the fundamental physical nature of intramolecular interactions makes it is possible to construct simple stochastic models of macromolecular dynamics.
+Pioneering work by Christof Sch\"{u}tte, Huisinga, and coworkers at the Zuse Institute of Berlin \cite{schuette:1999a,schuette-thesis,fischer-thesis,deuflhard:2000a,galliat:2000a,huisinga-thesis,galliat-thesis,fischer-thesis} (and later Weber and Kube \cite{weber-thesis:2006a,kube:2006a}), as well as independent work by Shalloway and coworkers \cite{shalloway:1996a,ulitsky:1998a,ulitsky:1999a,church:2001a}, and Berry and coworkers \cite{ball:1998b,despa:2001a,levy:2002a,despa:2003a}, proposed that macromolecules might exhibit behavior suggestive of long-lived \emph{metastable conformational states}. %  Double-check non-ZIB references
+The dynamics of a system with strongly metastable states is characterized by long waiting times \emph{within} these states, punctuated by infrequent stochastic transitions \emph{between} states.
+
+The existence of metastable states is a simple consequence of the presence of a separation of timescales between \emph{fast intrastate motion} and \emph{slow interstate motion}.
+It is widely believed that the nature of the energy landscape of biomacromolecules is hierarchical \cite{ansari:1985a,bai:1989a,becker:1997a,levy:2001a,levy:2002a}.
+Indeed, proteins are known to exhibit a wide dynamic range of timescales, from femtosecond bond vibration to nanosecond helix formation to microsecond or greater folding times.
+% JDC: Libusha suggests making the following into a table.  It would be great to dig up references too.
+%bonds vibrate with periods of tens of femtoseconds; water orientational relaxation occurs on picosecond timescales; contacts form on nanosecond timescales, and helices on tens or hundreds of nanoseconds; the fastest proteins fold in microseconds, but many fold much more slowly, in milliseconds; some conformational transitions, such as proline isomerizations, take place on many second timescales; kinetically trapped proteins have been found that have half-lives of years [CITE ALPHA-LYTIC]. 
+The hierarchical nature of the energy landscape presents an intriguing possibility: If there are many gaps in the spectrum of timescales (as would be expected from a hierarchical landscape), rather than a continuum (which would have to have a continuous and relatively flat distribution of barrier heights), then it should be possible to construct \emph{many} models with different numbers of metastable states capable of describing conformational dynamics, each with a different spatial and temporal resolution.
+These models need only be as detailed as necessary for describing the phenomena of interest, simplifying the process of interpreting experiments, understanding dynamics, and extracting chemical insight.
+
+The resulting stochastic model, produced by coarse-graining conformation space into metastable states, is a discrete-state, continuous-time \emph{master equation model}, in which transitions between states are described by first-order kinetics governed by a \emph{rate matrix}.
+As will be discussed at length, the simplicity of the model comes at the cost of incurring a coarse-graining in time; temporal resolution is lost because conformational dynamics occurring on timescales comparable with motion \emph{within} states is omitted in the model.
+Despite this, the master equation model possesses numerous benefits.
+The entire statistical dynamics over times longer than some intrinsic \emph{internal equilibration time} is available, allowing the production of single-molecule trajectories or ensemble evolution experiments, as well as allowing direct comparison with nonequilibrium relaxation kinetics experiments, the computation of unobservable properties like $P_\mathrm{fold}$ \cite{du:1998a} that aid in the understanding of mechanism \cite{lenz:2004a}, and the summarization of primary events in kinetics processes such as folding, most notably seen in the work of Banu Ozkan and Ken Dill \cite{ozkan:2001a,ozkan:2002a}.
+
+
+\section*{Synopsis}
+
+% JDC: Note: The commented-out text ideals
+
+%The aim of this dissertation is twofold.
+
+%First, we develop a statistical mechanical framework for modeling macromolecular conformational dynamics as stochastic transitions between metastable states for use as both a conceptual theoretical model for thinking about dynamics, interpreting and deigning experiments (both computational and experimental), and constructing efficient simulation algorithms.
+%This framework provides a rigorous connection between the master equation model, which is often treated as a purely phenomenological construct, and the classical statistical dynamics governing the evolution of macromolecular systems, and allows the necessary and sufficient conditions under which the model faithfully represents dynamics to be enumerated.
+
+%Second, we build upon this framework by designing efficient algorithms for the construction of these stochastic models from atomistic molecular dynamics simulations in explicit solvent, in order to provide tools for the investigation of these dynamical processes and dynamics pictures from which experimental hypotheses can be generated.
+%Just as structural models derived from X-ray or NMR data drove a revolution in biophysical and biochemical experimentation, these tools offer the possibility of generating models that are dynamical in nature, from which new insight into mechanistic models and experimental hypotheses may come.
+%The eventual development of forcefields of sufficient accuracy to reliably model macromolecular interactions may even elevate molecular simulation to a  tool on par with and complementary to existing experimental methods.
+
+%Chapter \ref{chapter:statistical-mechanics} contains a review the classical statistical mechanics describing the equilibrium and dynamical behavior of solvated biomacromolecular systems.
+%Some readers may find this material elementary, but notation used throughout this dissertation is introduced.
+
+%Chapter \ref{chapter:derivation-of-master-equation} presents the case for modeling macromolecular dynamics as a series of stochastic transitions between metastable states, and sets out the formal theory for deriving this model from the underlying statistical mechanics.
+%One approach based on the eigenfunction expansion of the Liouvillean is sketched, as it is useful for providing insight into experiments and simulations, and a detailed derivation using the Mori-Zwanzig projection operator formalism is presented.
+%Various properties of the resulting master equation model are enumerated, and a compendium of useful things that can easily be computed from it given.
+
+%Chapter \ref{chapter:validation-of-master-equation} is concerned with how these models, once constructed from simulation data, can be validated to determine the timescale for emergence of Markovian behavior.
+%An model system where dynamics of the model can be compared directly with numerous long simulations, terminally blocked alanine in explicit solvent, is introduced, and will be a recurring example used for illustrative purposes.
+
+%Chapter \ref{chapter:automatic-state-decomposition} describes progress toward algorithms for the discovery of metastable states without prior knowledge of the relevant degrees of freedom.
+
+%Chapter \ref{chapter:efficient-computation-of-transition-rates} focuses on the issue of efficiently computing transition probabilities between these states, once defined, and introduces the formalism of the \emph{transition energy density of states}. 
+%Through this formalism, and exploiting an analogue of the weighted histogram analysis method, data from static equilibrium simulations, equilibrium trajectories, trajectories initiated from equilibrium distributions over the states, and trajectories harvested from transition path sampling simulations can be combined to obtain an optimal estimate of the transition probabilities and rates.
+%Temperature-dependent transition probabilities and rates can also be obtained.
+
+%Finally, Chapter \ref{chapter:automatic-construction-of-master-equation} suggests ways in which these pieces of technology might be combined to construct a multistage or iterative procedure for automatically constructing master equation models in an efficient manner given whatever structural data may be initially available.
+%
+%Two appendices provide a review of the derivation of the weighted histogram analysis method, which is exploited extensively in this thesis, and a primer on the calculation of statistical uncertainties from molecular simulations.
+
+This thesis is organized as follows.
+Chapter \ref{chapter:wham} contains a variant of the weighted histogram analysis method that can treat simulated and parallel tempering simulations, and estimate the statistical uncertainty in equilibrium averages computed from these simulations.
+This was used extensively as a tool in subsequent work.
+Chapter \ref{chapter:mastereqn-alanine-long-times} contains a manuscript which is to appear in the journal \emph{Multiscale Modeling \& Simulation} that introduces the Markov chain or master equation model and illustrates that a model constructed from short trajectories can describe the long-time statistical dynamics of terminally-blocked alanine in explicit solvent.
+Chapter \ref{chapter:validation-of-master-equation} contains a manuscript to be submitted to the \emph{Journal of Physical Chemistry B} that is concerned with how these models, once constructed short trajectories, can be validated to determine the timescale for emergence of Markovian behavior.
+Finally, Chapter \ref{chapter:automatic-state-decomposition} describes progress toward algorithms for the discovery of metastable states without prior knowledge of the relevant degrees of freedom, the final piece of the puzzle necessary for the construction of these models for biomolecules.
+

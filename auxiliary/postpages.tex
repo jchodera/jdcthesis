@@ -1,0 +1,40 @@
+
+% no sections are expected any more, set odd header like the even.
+% You could use just \markboth{name}{name}, but like this I just
+% have to use \markboth{name}{}
+
+%\fancyhead[RO]                          % Section on the left on odd pages
+%{\leftmark{$\quad$\bfseries\thepage}}   % sec# section-name  page 
+
+
+
+% the bibliography
+% see NOTES file for further details
+
+\cleardoublepage
+\bibliography{jdcthesis}
+
+%\addtocontents{toc}{\vfill}
+
+% Acknowledgments.
+
+\cleardoublepage
+\mychapter{Acknowledgements}
+
+\input{auxiliary/acknowledgements}
+
+% index
+
+\cleardoublepage
+\printindex
+
+\if 0
+
+% the final blank pages for the press quantum (8 pages usually)
+
+\clearpage
+\thispagestyle{empty}
+\clearpage
+\thispagestyle{empty}
+
+\fi

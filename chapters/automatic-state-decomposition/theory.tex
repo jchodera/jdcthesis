@@ -1,0 +1,239 @@
+%% THEORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory}
+\label{section:theory}
+
+% TODO:
+% - Add a citation (e.g. van Kampen) for Chapman-Kolmogorov?
+% - Add a section on validation using Chapman-Kolmogorov?
+
+Some discussion of the stochastic model of kinetics considered here and the theory underlying the method is appropriate before describing the algorithmic implementation in detail.
+First, in Section \ref{section:theory:markov-model-introduction}, we review Markov chain and master equation models of conformational dynamics.
+Next, in Section \ref{section:theory:construction-from-simulation-data}, we describe their construction from equilibrium molecular dynamics trajectories given any state partitioning.
+Section \ref{section:theory:requirements-for-markovian-behavior} enumerates a number of requirements for a useful state partitioning.
+Finally, Section \ref{section:theory:validation} discusses possible methods for validating a given state decomposition.
+The actual implementation of the algorithm used here is described in detail in Section \ref{section:methods}.
+
+\subsection{Markov chain and master equation models of conformational dynamics.}
+\label{section:theory:markov-model-introduction}
+
+Consider the dynamics of a macromolecule immersed in solvent, where the solvent is at equilibrium at some particular temperature of interest.
+We presume that all of configuration space has already been decomposed into a set of nonoverlapping regions, or \emph{states}, which together form a complete decomposition of configuration space.
+The method by which these states are identified is described in subsequent sections.
+
+If we observe the evolution of this system at times $t = 0, \tau, 2 \tau, \ldots$, where $\tau$ denotes the observation interval, we can represent this sequence of observations in terms of the state the system visits at each of these discrete times.
+The sequence of states produced is a realization of a \emph{discrete-time stochastic process}.
+For this process to be described by a Markov chain, it must satisfy the \emph{Markov property}, whereby the probability of observing the system in any state in the sequence is independent of all but the previous state.
+For a stationary process on a finite set of $L$ states, this process can be completely characterized by an $L \times L$ \emph{transition matrix}\footnote{We adopt the notation for a \emph{column-stochastic} transition matrix, in which the columns sum to unity.  This differs from the notation in some previously-cited references, which use a \emph{row stochastic} transition matrix, equal to the transpose of the column stochastic matrix used here.} $\bfm{T}(\tau)$ dependent only on the observation interval, or \emph{lag time}, $\tau$.
+The element $T_{ji}(\tau)$ denotes the probability of observing the system in state $j$ at time $t$ given that it was previously in state $i$ at time $t-\tau$.
+If this process satisfies detailed balance (which we will assume to be the case for physical systems of the sort we consider here \cite{vankampen}) we additionally have the requirement
+\begin{eqnarray}
+T_{ji} p_{\mathrm{eq},i} = T_{ij} p_{\mathrm{eq},j}
+\end{eqnarray}
+where $p_{\mathrm{eq},i}$ denotes the equilibrium probability of state $i$.
+
+The vector of probabilities of occupying any of the $L$ states at time $t$ (here also referred to as the vector of state populations, such as in an experiment involving a population of noninteracting macromolecules) can be written as $\bfm{p}(t)$.
+If the initial probability vector is given by $\bfm{p}(0)$, we can write the probability vector at some later time $t=n\tau$ as
+\begin{eqnarray}
+\bfm{p}(n \tau) \: = \: \bfm{T}(n \tau) \bfm{p}(0) \: = \: [\bfm{T}(\tau)]^n \bfm{p}(0) . \label{equation:chapman-kolmogorov}
+\end{eqnarray}
+This is a form of the \emph{Chapman-Kolmogorov equation}.
+
+Alternatively, the process can be characterized in {\em continuous} time by a matrix of phenomenological rate constants $\bfm{K}$, where the element $K_{ji}$, $j \ne i$ denotes the nonnegative phenomenological rate from state $i$ to state $j$.
+The diagonal elements are determined by $K_{ii} = - \sum_{j \ne i} K_{ji}$ to ensure the columns sum to zero so as to conserve probability mass.
+Time evolution is then governed by the equation
+\begin{eqnarray}
+\dot{\bfm{p}}(t) &=& \bfm{K} \bfm{p}(t) \label{equation:master-equation}
+\end{eqnarray}
+where the dot represents differentiation with respect to time.
+This evolution equation has formal solution
+\begin{eqnarray}
+\bfm{p}(t) &=& e^{\bfm{K} t} \bfm{p}(0) \label{equation:master-equation-evolution} ,
+\end{eqnarray}
+where the exponential denotes the formal matrix exponential.
+Eq.\ \ref{equation:master-equation} is often referred to as a \emph{master equation} \cite{vankampen,oppenheim:1977a} describing evolution among a discrete set of states in continuous time.
+It is important to note that, despite the fact that $\bfm{p}(t)$ is formally defined for all times $t$, we do not expect Eq.\ \ref{equation:master-equation-evolution} to hold for \emph{all} times $t$ for physical systems of the sort we consider here.
+In particular, for states of finite extent in configuration space, there exists a corresponding limit for the time resolution for which dynamics will appear Markovian; processes that occur on timescales shorter than this will be be incorrectly described by the master equation.
+We will return to this topic in detail in subsequent sections.
+
+There is an obvious relationship between the transition matrix $\bfm{T}(\tau)$ and the rate matrix $\bfm{K}$ evident from comparison of Eqs. \ref{equation:chapman-kolmogorov} and \ref{equation:master-equation-evolution}:
+\begin{eqnarray}
+\bfm{T}(\tau) &=& e^{\bfm{K} \tau} . \label{equation:relation-between-transition-and-rate-matrices}
+\end{eqnarray}
+If the process can be described by a continuous-time Markov process at all times, then this process can be equivalently described at discrete time intervals by the corresponding transition matrix.
+The converse may not always be true due to sampling errors in $\bfm{T}(\tau)$, though methods exist to recover rate matrices $\bfm{K}$ consistent with the observed data and the requirements of detailed balance and nonnegativity rates \cite{grubmueller:1994a,sriraman:2005a}.
+
+The transition and rate matrices have eigenvalues $\mu_k(\tau)$ and $\lambda_k$, respectively, and share corresponding right eigenvectors $\bfm{u}_k$.
+The detailed balance requirement additionally ensures that all eigenvalues are real, and we here presume them to be sorted in descending order.
+%The transition and rate matrices have related eigenvalue decompositions
+%\begin{eqnarray}
+%\bfm{K} = \bfm{U} \, \bfm{\Lambda} \, \bfm{U}^{-1} \: &;& \: \bfm{T(\tau)} = \bfm{U} \, \bfm{M}(\tau) \, \bfm{U}^{-1}
+%\end{eqnarray}
+%where the diagonal matrix $\bfm{\Lambda}$ contains the eigenvalues $\lambda_k$ of $\bfm{K}$, the diagonal matrix $\bfm{M}(\tau)$ contains the eigenvalues $\mu_k(\tau)$ of $\bfm{T(\tau)}$, and $\bfm{U}$ contains the eigenvectors as column vectors.
+$\mu_k(\tau)$ and $\lambda_k$ are related by
+\begin{eqnarray}
+\mu_k(\tau) &=& e^{\lambda_k \tau} . \label{equation:implied-timescales}
+\end{eqnarray}
+%For indecomposable Markov chains, for which the transition matrix is ergodic, there will be exactly one eigenvalue $\mu_1$ of unity (or equivalently $\lambda_1 = 0$), and its corresponding right eigenvector $\bfm{u}_1$ will contain the invariant equilibrium distribution (when properly normalized such that $\bfm{1}^\T \bfm{u}_1 = 1$).
+%As the dynamical evolution of the system in continuous time can be expanded in terms of the eigenvectors as
+%\begin{eqnarray}
+%\bfm{p}(t) &=& \sum_{k=1}^M (\bfm{u}_k, \bfm{p}(0)) \, e^{\lambda_k t} \, \bfm{u}_k
+%\end{eqnarray}
+%where $(\bfm{a},\bfm{b}) = \sum_i p_{\mathrm{eq},i}^{-1} \, a_i \, b_i$ denotes the inner product \cite{vankampen}
+The eigenvalues each imply a timescale corresponding to an inverse aggregate rate
+\begin{eqnarray}
+\tau_k = - \lambda_k^{-1} = - \tau [ \ln \mu_k(\tau) ]^{-1} \label{equation:implied-timescales}
+\end{eqnarray}
+and the associated eigenvector gives information about the aggregate conformational transitions that are associated with this timescale \cite{schuette-thesis,schuette:1999a,huisinga-thesis,schuette:2002a}.
+In particular, the components of $\bfm{u}_k$ sum to zero for each $k \ge 2$, and the aggregate dynamical mode can be identified with transitions from microstates with positive eigenvector components interconverting with the set of microstates with negative components, and vice-versa, with the degree of participation in the mode governed by the magnitude of the eigenvector component.
+This fact can be useful in deducing the conformational transitions among aggregated regions of configuration space that govern relaxation to equilibrium, which is achieved once all processes have exponentially damped out.
+
+For the remainder of this manuscript, we will refer exclusively to the discrete-time Markov chain model picture without loss of generality (Eq.\ \ref{equation:chapman-kolmogorov}), except for use of the timescales implied by the transition matrix, as described above.
+% JDC: Add reference to Mori-Zwanzig paper, if finished in time, discussing addition properties that K and T must have for physical systems, as a consequence of the projection operator formalism.
+
+\subsection{Construction from simulation data given a state partitioning.}
+\label{section:theory:construction-from-simulation-data}
+
+Once a statistical-mechanical ensemble describing equilibrium and a microscopic model describing dynamical evolution in phase space have been selected, the transition matrix $\bfm{T}(\tau)$ can be estimated from molecular dynamics simulations.
+For a system in which dynamical evolution is Newtonian and, at equilibrium, configurations are distributed according to a canonical distribution at a given temperature, Swope \emph{et al.}\cite{swope:2004a} show that the transition probability $T_{ji}(\tau)$ can be written as the following ratio of canonical ensemble averages:
+\begin{eqnarray}
+T_{ji}(\tau) 
+%&\equiv& \int d\bfm{z}(0) \, p_i(\bfm{z}(0)) \, \chi_j(\bfm{z}(\tau)) \label{equation:transition-element-conditional-probability} \\
+&=& \frac{\int d\bfm{z}(0) \, e^{-\beta H(\bfm{z}(0))} \, \chi_j(\bfm{z}(\tau)) \, \chi_i(\bfm{z}(0))}{\int d\bfm{z}(0) \, e^{-\beta H(\bfm{z}(0))} \, \chi_i(\bfm{z}(0))} \label{equation:transition-element-phase-space-integrals} \\
+&=& \frac{\expect{\chi_j(\tau) \chi_i(0)}}{\expect{\chi_i}} \label{equation:transition-element-correlation-functions}
+\end{eqnarray}
+where $\bfm{z(t)}$ denotes a point in phase space visited by a trajectory at time $t$, 
+$\chi_i(\bfm{z})$ denotes the indicator function for state $i$ (which assumes a value of unity if $\bfm{z}$ is in state $i$, and zero otherwise),
+%$p_i(\bfm{z})$ the equilibrium distribution confined within state $i$, 
+$\beta \equiv (k_B T)^{-1}$ the inverse temperature, $H(\bfm{z})$ the Hamiltonian, and $\left< A \right>$ the canonical ensemble expectation of a phase function $A(\bfm{z})$ at inverse temperature $\beta$.
+
+Given a set of simulations initiated from an equilibrium distribution, the expectations in Eq.\ \ref{equation:transition-element-correlation-functions} can be computed independently by standard analysis methods \cite{allen:1991a}.
+Estimation of the correlation function in the numerator can make use of both the stationarity of an equilibrium distribution (by considering overlapping intervals of time $\tau$), and the microscopic reversibility (by considering also time-reversed versions of the simulations) 
+of Newtonian trajectories.
+Alternatively, if an equilibrium distribution within each state can be prepared, one can also directly estimate a column of transition matrix elements by computing the fraction of trajectories initially at equilibrium within state $i$ that terminate in state $j$ a time $\tau$ later.
+More elaborate methods based on equilibrium ensembles prepared within special \emph{selection cells} that are not coincident with the states \cite{swope:2004a,swope:2004b} or \emph{partition of unity} restraints \cite{weber-thesis:2006a} can also be used to compute transition matrix elements efficiently.
+
+\subsection{Requirements for a useful Markov model.}
+\label{section:theory:requirements-for-markovian-behavior}
+% JDC: In light of Bill's change of the focus of this section, we should change its title to something like "Further requirements for chemical insight.."?
+
+For any given state partitioning, the dynamics of the system will be Markovian on some time scale.
+For example, if the lag time $\tau$ is so long as to approach the time for the system to relax to an equilibrium distribution from any arbitrary nonequilibrium starting distribution, a single application of the transition matrix $\bfm{T}(\tau)$ carries any arbitrary initial probability distribution directly to the invariant equilibrium distribution.
+However, if this $\tau$ exceeds the timescale of the process of interest, our model is not useful\footnote{Equilibrium probabilities can still be extracted from the stationary eigenvector (the eigenvector of corresponding to an eigenvalue of unity) of such a transition matrix, which may have some utility if one had constructed the transition matrix from trajectories not initiated from distributions at equilibrium globally.} for describing it, and therefore it is advantageous to attempt to find a state decomposition that is Markovian on a shorter timescale in order to extract useful dynamical information about this process. 
+
+For a given state $i$, we will define its internal equilibration time, $\tau_{\mathrm{int},i}$, as the characteristic time one must wait before the system, initially in a configuration within state $i$, generates a new \emph{uncorrelated} configuration within the state by dynamical evolution.
+This internal equilibration time, or \emph{memory time}, closely related to the molecular relaxation timescale $\tau_\mathrm{mol}$ in Chandler's reactive flux formulation of transition state theory \cite{chandler:1978a}, depends, of course, on the choice of state decomposition.
+We can denote the longest of these times over all states by $\tau_\mathrm{int}$.
+This is not to be confused with the time it takes an arbitrary nonequilibrium distribution to relax to global equilibrium, but rather, the minimum lag time for which dynamics will appear to be Markovian using this particular state decomposition.  If the lag time is longer than $\tau_\mathrm{int}$, we will expect the system to have lost memory of its previous location within {\em any} state it may have been in, either remaining within that state or transitioning to a new one, and for dynamics on this set of states to be independent of history.
+On the other hand, for lag times shorter than $\tau_\mathrm{int}$, we cannot guarantee that transition probabilities are independent of history everywhere.
+This suggests a way in which the utility of various decompositions can be measured.
+For a fixed number of states, the most useful model will partition configuration space to yield the shortest $\tau_\mathrm{int}$, as this model can be used to study the widest range of dynamical processes.
+% JDC: Add something about how a lower bound on tau_int could be estimated from restrictions of Markov chains.  Cite Schuette papers on this.
+
+%In order for the dynamical evolution of a macromolecule to resemble a Markov process, 
+%we expect a number of conditions to be met.
+%Mathematically, the only true requirement is history independence, 
+%but a model that satisfies only this criteria may not be useful for the study of dynamical processes; 
+%pathological cases can be constructed in which history dependence is strictly satisfied but the 
+%resulting states have no physical meaning.
+% JDC: I have Nina's example in the following sentence, but it may be too confusing to include.
+% For example, if each state consisted of a large number of randomly assigned regions of phase space, 
+%the resulting model will likely be Markovian at short times, but a single application of the 
+%transition matrix will carry the system to equilibrium and the states would be meaningless.
+In addition to producing transition probabilities that are history independent at a relevant lag time, we impose additional conditions on our states to ensure the resulting model also provides physical and chemical insight.
+Because we are primarily interested in macromolecular dynamical motion such as protein folding, we first require that states be consistent with a chemical intuition for a macromolecular {\em conformational} substate and, therefore, exist as constructs exclusively in the configuration space of the macromolecule.
+In solvated systems, we expect relaxation and decorrelation of momenta to be much faster than any of the dynamical behaviors of interest, and so we ignore momenta in defining our states.  
+Furthermore, we presume reorganization of the solvent is faster than processes of interest, and therefore ignore coordinates associated with the surrounding solvent\footnote{We recognize that solvent coordinates may be critical in some phenomena, but dealing with solvent degrees of freedom would also require accounting for the indistinguishability of solvent molecules upon their exchange.  We leave this to further iterations of the algorithm.}.
+
+%The fundamental assumption leading macromolecular dynamics to resemble a discrete-state Markov model 
+%is the existence of a \emph{separation of timescales}.
+Also, we seek conformational states that exhibit a {\em separation of timescales}.
+If states can be constructed where the timescale for equilibration \emph{within} each state is much shorter than the timescale for transitions \emph{among} the states, we would expect interstate dynamics to be well-modeled by a Markov chain after sufficiently long observation intervals.
+Consider, for example, the isomerization of butane, which has three main metastable conformational states (\emph{gauche-plus}, \emph{gauche-minus}, and \emph{trans}).
+At sufficiently low temperature, dynamics is dominated by long dwell times \emph{within} each of these three states, punctuated by infrequent transitions between them.  
+The slow interstate transition process is well-described by first order reaction kinetics for observation intervals longer than the fast molecular relaxation time for intrastate dynamics due to the presence of a separation of timescales \cite{chandler:1978a}.
+
+In order for the states to be defined such that equilibration within a state is rapid, we further require that the region of configuration space defining each state be \emph{compact} and \emph{connected}.
+% JDC: Nina had a concern regarding states that consist of unconnected regions related by symmetry, 
+%but I can't quite recall the argument.  We may need to think about this some more.
+A state composed of two or more unconnected regions of phase space defies the assumption that equilibration within the state is much faster than the characteristic time to leave it.
+%While it may still be possible to construct cases where states are not contiguous yet the 
+%resulting model is Markovian, we feel that this contiguity requirement is essential for the 
+%states to be endowed with chemical or physical meaning.
+
+%Another consequence of requiring rapid intrastate equilibration is that the probability of 
+%transitioning to another state must be independent of the initial microscopic configuration within the state.
+%In the Markov chain literature, this condition is called \emph{lumpability} \cite{kemeney:1960a}.
+%While this could be directly tested by initiating many trajectories with random initial velocities 
+%from each of a number of points within the state, this approach is impractical.
+% JDC: Is more needed here?  Does this paragraph serve a specific purpose?
+
+% JDC: We might add something about 'best' decomposition giving the slowest rates, by analogy with 
+%variational TST.  To do this, we first need to introduce the concept of implied timescales, which 
+%we do below in the Validation section.  This would require a bit of rewriting to introduce earlier.
+
+% JDC: Metastable states appear relatively invariant with lag time tau (cite ZIB?) though use of 
+%long enough tau will actually wipe out weakly metastable states.  Suggests we want to use a tau 
+%less than or equal to the timescale of the processes of interest.  This tau does not have to 
+%correspond to tau_eq, since this will be estimated in a separate step after the partitioning has 
+%been selected (see Validation).
+
+%To summarize, we have the following requirements:
+%[WS: including this list seems redundant.]
+%\begin{description}
+%  \item [Compactness and connectivity.]  States consist of connected, compact regions in the configuration 
+%space of the macromolecule.
+%  \item [Separation of timescales.]  For each state, the internal equilibration time $\tau_\mathrm{eq}$ 
+%is much shorter than the characteristic state lifetime $\tau_\mathrm{lifetime}$.  Maximizing the 
+%metastability (Eq. \ref{equation:metastability}) may provide an inexpensive way to attempt to 
+%achieve a separation of timescales.
+%  \item [Utility.]  The internal equilibration time for the entire system, $\tau_\mathrm{eq}$, must be 
+%shorter than the timescale of the fastest phenomenon of interest, $\tau^*$.
+%\end{description}
+
+\subsection{Validation of Markov models.}
+\label{section:theory:validation}
+
+Once a decomposition of configuration space is chosen, we are faced with the task of determining the observation time interval $\tau$ at which dynamics in this state space appears Markovian.
+Unfortunately, we cannot directly compute the internal macrostate equilibration times, though examination of the eigenvalues of the transition matrix restricted to a state may give a lower bound on this time in the absence of statistical uncertainty \cite{meerbach:2004a}.
+The most rigorous test for Markovian behavior would be a direct test for history independence.
+The simplest test of this type is to compute second order transition probabilities and compare them to the appropriate products of the first order transition probabilities to see if their disagreement is statistically significant, though this would miss possible yet unlikely higher order history dependencies.
+While it is possible to estimate these from the simulation data, this requires the estimation of three-time correlation functions, which often possess statistical uncertainties so large as to render them useless for this kind of test \cite{chodera:jpcb:2006}.
+
+Raising the transition matrix to a power $n$ (hence summing over the intermediate states) and comparing with the observed transition probabilities for a lag time of $n\tau$, such that one is effectively determining whether the Chapman-Kolmogorov equation (Eq.\ \ref{equation:chapman-kolmogorov}) is satisfied, helps to reduce the uncertainty so that the test becomes practical.
+This is equivalent to propagating the population in time out of a probability distribution confined to each state $i$ initially, and comparing the model evolution with the observed transition probabilities over times much longer than $\tau_{\mathrm{int}}$.
+This serves as a check to ensure that the model is at least consistent with the dataset from which it was constructed, to within the statistical uncertainty of the transition matrices obtained from the dataset.
+This method was employed, for example, in Refs.\ \cite{swope:2004a,chodera:mms:2006}.
+
+Another approach, from Park, \emph{et al.}, \cite{park:2006a} uses concepts from information theory to compute the \emph{conditional mutual information} conveyed by the second-to-last state, which quantifies the discrepancy between observed second-order transition probabilities and the estimate modeled from first-order transition probabilities.
+The result of this analysis is a scalar that quantifies the degree of history dependence.  
+For a pure first-order Markov process, the mutual information will be zero, as no additional information is gained by including additional history.
+While this method also requires computing three-time correlation functions, which may individually have substantial uncertainties, the weighted combination of these into a single value reduces the uncertainty in the resulting metric.
+Unfortunately, there is no rigorous criteria for how small this measure must be in order for the model to be considered acceptably Markovian.
+
+Swope, \emph{et al.}, \cite{swope:2004a} suggested a number of additional tests for signatures of Markov behavior, the most sensitive of which appears to be examining the behavior of the \emph{implied timescales} of the transition matrix $\bfm{T}(\tau)$, which can be computed from the eigenvalues of the transition matrix by Eq.\ \ref{equation:implied-timescales}, as a function of increasing lag time $\tau$ \cite{chodera:jpcb:2006}.
+At sufficiently large $\tau$, the implied timescales will be independent of $\tau$, implying that exponentiation of the transition matrix is nearly identical to constructing the transition matrix using longer observation time intervals (Eq.\ \ref{equation:chapman-kolmogorov}).
+% JDC: One primary criticism of Marcus Weber and the ZIB folks is that this is formally incorrect for our dynamical model, since repeated application of T(\tau) introduces a velocity randomization every \tau, whereas T(n\tau) only has a velocity randomization at time zero.  We note that it will only appear to be the case under particular conditions that permit such a model to describe kinetics.
+The shortest observation time interval for which this holds can be correlated with the internal equilibration time $\tau_\mathrm{int}$, and descriptions of the behavior of the system using that state decomposition should be Markovian for all lag times $\tau \ge \tau_\mathrm{int}$.
+This is also a test of whether the Chapman-Kolmogorov equation holds, but as it computes only $L$ numbers and orders them by timescale, it allows emphasis to be placed on the longest timescales in the system.
+
+Unfortunately, this method has some drawbacks.  
+First, small uncertainties in the eigenvalues of the transition matrix can induce very large uncertainties in the implied timescales.  
+With increasing lag time $\tau$, the number of statistically independent observed transitions, from which $\bfm{T}(\tau)$ is estimated, diminishes, and the statistical uncertainty in the implied timescales $\tau_k$ will grow.
+Second, while stability of the implied timescales with respect to lag time is a \emph{necessary} consequence of history independence, it is not itself \emph{sufficient} to guarantee history independence, though we may be unlikely to encounter physical systems for which this is problematic.
+% NS: Another possible drawback is that since we calculate the implied time scales for increasing lag times, the end effects (especially when we have few trajectories that visit given states) may affect the results.  I think comparing only consecutive lag times are less sensitive to this, but we never really proved that this was why our timescales for low population states occasionally kept increasing
+% JDC: Good point.  We need to get a handle on these end effects, if they are real.  Perhaps we should only be allowed to compute the timescales up to a lag time of half the longest trajectory length?  What if we have trajectories of a distribution of lengths?
+However, tests on simple models indicate that the information theoretic metric suggests the emergence of Markovian behavior on similar lag times to this method, suggesting some degree of fundamental equivalence \cite{park:2006a}.
+
+In this work, the analysis of implied timescales as a function of lag time will be our primary test for the emergence of Markovianness.
+
+%From tests on simple models, comparison of analyses based on implied timescales and the information theoretic based metric appears to indicate the emergence of Markovian behavior at approximately the same lag time \cite{park:2006a}, and, so, the primary validation tests used in this work will be based on the analysis of implied timescales.
+
+%Instead of testing for one- or two-time history independence of the transition probabilities, in some cases, it is also possible to test the statistical time evolution out of each state over longer times.
+%An ensemble of starting conformations representative of some nonequilibrium condition could be prepared, and numerous simulations conducted to examine the statistical time evolution over long times.  
+%The temporal behavior of the state populations as this ensemble relaxes to equilibrium should be consistent with that predicted by the model through repeated application of the transition matrix to the initial state probabilities.  
+%%This would be of interest in the study of protein (un)folding experiments, such as laser temperature-jump experiments, in which a short laser pulse rapidly heats the solvent, taking the population of macromolecules out of equilibrium with respect to the higher temperature.
+%%Although the models described in this work are constructed from equilibrium data characteristic of a particular temperature, we would expect to capture the dynamics of systems thermally perturbed in this way.
+%% JDC: What about systems perturbed in other (non-thermal) ways?  My point was to stress that the model is only useful for particular perturbations away from equilibrium, and not ANY arbitrary perturbation from equilibrium.  I think we need to make this point.
+%In this work, among other tests, we monitor the evolution of various ensembles of trajectories, selected from equilibrium but all started from a single state.
+%We compare their evolution with a model constructed from trajectories at equilibrium.
+%% JDC: What do we do here?
